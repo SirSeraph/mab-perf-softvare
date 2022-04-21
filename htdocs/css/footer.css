@@ -1,0 +1,40 @@
+.footer{
+	width:100%;
+	height: 10em;
+	display:block;
+	overflow:hidden;
+	padding:40px;
+	box-sizing: border-box;
+	background-color: rgb(197, 224, 243);
+	margin-top: 2vw;
+}
+
+.InnerFooter{
+	display: block;
+	margin: 0 auto;
+	width: 80%;
+	height: 100%;
+	margin-top: -1.5em;
+}
+
+#Copyright{
+	display: block;
+	font-size: 15px;
+	padding-top: 3vw;
+	float: middle;
+	color: black;
+	font-family: "Poppins", sans-serif;
+
+
+}
+
+@media(max-width: 858px){
+	.footer{
+		height:550px;
+		width:auto;
+	}
+	.footer .InnerFooter{
+		width: auto;
+		height: 220px;
+		text-align: left;
+		}

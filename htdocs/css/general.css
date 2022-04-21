@@ -1,0 +1,203 @@
+body{
+	background-color: #161A1D;
+	text-align: center;
+}
+.blog{
+	font-family: "Roboto", sans-serif;
+	background-color: #161A1D;
+	color: white;
+}
+
+.blog .bhead h1{
+	display:block;
+	font-size: 40px;
+	margin-top: 0.8vw;
+	text-align: center;
+	margin-bottom: 0.4vw;
+}
+
+.blog .bhead h2{
+	display:block;
+	font-size:14px;
+	font-weight: 300;
+	margin-top: 2vw;
+	text-align: center;
+	margin-bottom: 2vw;
+}
+
+.blog .btext{
+	font-family: "Times New Roman";
+	font-size: 18px;
+	display:block;
+	text-align: left;
+	line-height: 26px;
+	margin-bottom: 1vw;
+	padding-left: 23vw;
+	padding-right: 20vw;
+
+}
+
+.blog .bps{
+	display: block;
+}
+
+.blog .bps a{
+	display: block;
+	margin-top: 2vw;	
+	text-align: center;
+	color: white;
+
+}
+
+.blog .bps hr{
+	display: block;
+  	margin-top: 0.5em;
+	margin-left: 41vw;
+	margin-right: 41vw;
+  	margin-bottom: 0.5em;
+  	border-width: 1px;
+	border-color: white;
+}
+
+/*no-site*/
+
+.no-site{
+	height: auto;
+	width: auto;
+	text-align: center;
+	background-color: #161A1D;
+	color: white;
+	margin-bottom: 18.6vw;
+	margin-top: 18.6vw;
+	display: block;
+	/*
+	border-style: solid;
+  	border-top-width: 1px;
+  	border-bottom-width: 1px;
+  	border-color: white;
+  	*/
+
+}
+
+/*falcon*/
+
+.fcn a{
+	color: transparent;
+}
+.fcn a:hover{
+	color: transparent;
+}
+
+/* Contents of quizWindowHead */
+
+.quizWindow .quizWindowHead .otazkac{
+	font-size: large;
+}
+.quizWindow .quizWindowHead .otazka{
+
+}
+.quizWindow .quizWindowText{
+	float: left;
+	text-align: left;
+	width: 100%;
+	margin-left: 2%;
+	margin-top: 1%;
+	line-height: 200%;
+	font-family: "Open Sans", Helvetica, Arial, sans-serif;
+
+}
+.quizWindow .controls{
+	
+	float: left;
+	text-align: left;
+	width: 100%;
+	margin-left: 2%;
+	margin-top: 1%;
+	line-height: 200%;
+	font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+	
+.button-option{
+	order: 3;
+	padding: 15px;
+	margin: 6.5px;
+}
+
+.button-control{
+	background: black;
+	color: white;
+	border: 0px;
+	order: 4;
+	padding: 15px;
+	
+}
+.button-control:hover{
+	background: white;
+	color: black;
+	border: 0px;
+	order: 4;
+	padding: 15px;
+	transition: 0.5s;
+	cursor: pointer;
+	
+}
+.hide{
+	display: none;
+}
+
+/* Contact */
+main {
+	margin-top: 78px;
+	margin-bottom: 78px;
+}
+p {
+	color: white;
+	font-size: 30px;
+	padding-top: 30px;
+	padding-bottom: 20px;
+	font-family: 'Poppins', sans-serif;
+
+}
+input[type=text] {
+	width: 40%;
+	margin-top: 15px;
+	padding-top: 10px; 
+	padding-left: 5px;
+	padding-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+  display: block;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #E71D36;
+  border-radius: 3px;
+	font-family: 'Poppins', sans-serif;
+}
+
+textarea {
+  width: 40%;
+	padding-top: 10px; 
+	padding-left: 5px;
+	padding-bottom: 10px;
+	margin-top: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #E71D36;
+  display: block;
+  border-radius: 3px;
+	font-family: 'Poppins', sans-serif;
+	font-size: 13.3333px;
+
+}
+
+button[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}

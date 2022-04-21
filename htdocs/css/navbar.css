@@ -1,0 +1,146 @@
+.menu{
+	background-color: rgb(197, 224, 243);
+  color:black;
+  height: 40px;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+nav{
+  background: rgb(197, 224, 243);
+  height: 60px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+}
+
+.navbar .menu .language{
+  float: left;
+  margin-left: 20px;
+  margin-top: 6px;
+}
+.navbar .menu .language a{
+  color: black;
+  display: block;
+  line-height: 25px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  border-radius: 1px;
+  width: 30px;
+}
+.navbar .menu .language a:hover{
+  background: white;
+  color: black;
+  width: 30px;
+  transition: 0.5s; 
+}
+
+label.logo{
+  font-size: 31px;
+  line-height: 80px;
+  float: left;
+  margin-left: 180px;
+  margin-top: -10px;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+}
+
+nav ul{
+  float: right;
+  margin-top: -10px;
+  margin-right: 60px;
+}
+
+nav ul li{
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 2px;
+}
+
+/* menu hovering */
+.navbar .menu nav ul li a{
+  color: black;
+  font-weight: 500;
+  font-size: 17px;
+  padding: 7px 13px;
+  border-radius: 3px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.navbar .menu ul li a.active, ul li a:hover{
+  background: white;
+  color: black;
+  transition: 0.8s;
+}
+
+.navbar br{
+  display: block;
+  margin-bottom: 3.7vw;
+}
+
+.checkbtn{
+  font-size: 30px;
+  float: right;
+  line-height: 62px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+
+#check{
+  display: none;
+}
+
+/*settings for mobile phones, small screens, etc.(side panel)*/
+@media (max-width: 952px){
+  label.logo{
+    font-size: 33px;
+    margin-left: 40px;
+  }
+  nav ul li a{
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 858px){
+  .checkbtn{
+    display: block;
+    margin-right: 40px;
+  }
+  ul{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: white;
+    top: 70px;
+    left: -100%;
+    text-align: center;
+    transition: all .5s;
+  }
+  nav ul li{
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
+  }
+  nav ul li a{
+    font-size: 20px;
+  }
+  a:hover,a.active{
+    background: none;
+    color: #0082e6;
+  }
+  #check:checked ~ ul{
+    left: 0;
+  }
+}
+
