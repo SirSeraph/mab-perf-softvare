@@ -1,2 +1,2 @@
 # mab-perf-softvare
-Web based app for calculating Mass, balance and performance of the aircraft DA-20
+Web based application for calculating Mass, balance and performance of the aircraft DA-20
