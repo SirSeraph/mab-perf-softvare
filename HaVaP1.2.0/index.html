@@ -16,45 +16,45 @@
 <div class="siteGrid">
 <div class="hodnotyContainer">
     <div class="item">
-        Numbers:
+        Inputs:
     </div>
     <div class="item1">
-        <label for="AirEmptMass">Aircraft Empty Mass: </label>
+        <label for="AirEmptMass_id">Aircraft Empty Mass: </label>
         </div>
         <div class="item1-1">
-        <input id="AirEmptMass" value="520" type="number">
+        <input id="AirEmptMass_id" value="530" type="number" onchange="vypis()">
         </div>
 
     <div class="item2">
-        <label for="AirEmptMoment">Aircraft Empty Mass Moment: </label>
+        <label for="AirEmptMoment_id">Aircraft Empty Mass Moment: </label>
         </div>
         <div class="item2-1">
-        <input id="AirEmptMoment" value="160590" type="number">
+        <input id="AirEmptMoment_id" value="160590" type="number" onchange="vypis()">
         </div>
 
     <div class="item3">
-        <label  for="pilot">Pilot: </label>
+        <label  for="pilot_id">Pilot: </label>
         </div>
         <div class="item3-1">
-        <input id="pilot" type="number" value="">
+        <input id="pilot_id" type="number" value="" onchange="vypis()">
         </div>
 
     <div class="item4">
-        <label for="copilot">Copilot: </label>
+        <label for="copilot_id">Copilot: </label>
         </div>
         <div class="item4-1">
-        <input id="copilot" type="number" value=""></div>
+        <input id="copilot_id" type="number" value="" onchange="vypis()"></div>
     <div class="item5">
-        <label for="Baggage">Baggage: </label >
+        <label for="Baggage_id">Baggage: </label >
         </div>
         <div class="item5-1">
-        <input id="Baggage" type="number" value=""></div>
+        <input id="Baggage_id" type="number" value="" onchange="vypis()"></div>
 
     <div class="item6">
-        <label for="Fuel">Fuel: </label>
+        <label for="Fuel_id">Fuel: </label>
         </div>
         <div class="item6-1">
-        <input id="Fuel" type="number" value="">
+        <input id="Fuel_id" type="number" value="" onchange="vypis()">
         </div>
 </div>
 
@@ -66,44 +66,48 @@
     <label for="vaha_vypocet_id">Total Mass: </label>
     </div>
     <div class="grid-item1-1">
-    <input  id="vaha_vypocet_id" type="number" readonly>
+    <input  id="vaha_vypocet_id" type="text" readonly>
     </div>
     <div class="grid-item2">
         <label for="celkovy_moment_id">Total Moment: </label>
         </div>
         <div class="grid-item2-1">
-        <input  id="celkovy_moment_id" type="number" readonly>
+        <input  id="celkovy_moment_id" type="text" readonly>
         </div>
     <div class="grid-item3">
         <label for="pozicia_taziska_id">GOG TO: </label>
     </div>
     <div class="grid-item3-1">
-        <input  id="pozicia_taziska_id" type="number" readonly>
+        <input  id="pozicia_taziska_id" type="text" readonly>
     </div>
     <div class="grid-item4">
         <label for="pozicia_taziska_0fuel_id">COG 0 Fuel: </label>
         </div>
         <div class="grid-item4-1">
-        <input  id="pozicia_taziska_0fuel_id" type="number" readonly>
+        <input  id="pozicia_taziska_0fuel_id" type="text" readonly>
         </div>
     <div class="grid-item5">
         <label for="pozicia_taziska_SAT_id">COG TO in %: </label>
         </div>
         <div class="grid-item5-1">
-        <input  id="pozicia_taziska_SAT_id" type="number" readonly>
+        <input  id="pozicia_taziska_SAT_id" type="text" readonly>
         </div>
     <div class="grid-item6">
         <label for="pozicia_taziska_SAT_0fuel_id">COG in % 0 fuel: </label>
         </div>
         <div class="grid-item6-1">
-        <input  id="pozicia_taziska_SAT_0fuel_id" type="number" readonly>
+        <input  id="pozicia_taziska_SAT_0fuel_id" type="text" readonly>
         </div>
 </div>
+<div class="envelope">
+    <div class="nadpisEnvelope">
+        Mass & Balance Envelope
+    </div>
+        <div class="resposiveTable">
+    </div>
+</div>
+</div>
 
-<div class="resposiveTable">
-</div>
-</div>
-<!--
 <div id="vystup_id"></div>
 <div id="vypocet_paliva_id"></div>
 <div id="vaha_vypocet_id"></div>
@@ -111,26 +115,30 @@
 <div id="pozicia_taziska_id"></div>
 <div id="pozicia_taziska_0fuel_id"></div>
 <div id="pozicia_taziska_SAT_id"></div>
--->
 
 <div class="aditionalContainer">
     <div class="item_date">
-        <label for="Date">Date: </label>
-        <input  id="Date" type="date" >
+        <label for="Date_id">Date: </label>
+        <input  id="Date_id" type="date" >
     </div>
     <div class="item_Callsign">
-        <label for="Reg_number">Registration number: </label >
-        <input id="Reg_number" type="text">
+        <label for="Reg_number_id">Registration number: </label >
+        <input id="Reg_number_id" type="text">
     </div>
     <div class="item_PIC">
-        <label for="Name_PIC">PIC Name: </label >
-        <input id="Name_PIC" type="text">
+        <label for="Name_PIC_id">PIC Name: </label >
+        <input id="Name_PIC_id" type="text">
     </div>
+
+    <!--Momentálne zbytočný Button-->
+    <!--
     <div class="item_Button">
     <button id="button" onclick="vypis()">Calculate</button>
     </div>
+    -->
+
     <div class="item_unitsSelectContainer">
-        <select style="width: 100px" name="operation" id="units">
+        <select style="width: 100px" name="operation" id="units_id">
             <option value="Metric">Metric</option>
             <option value="Imperial">Imperial</option>
             <option value="Hybrid">Hybrid</option>

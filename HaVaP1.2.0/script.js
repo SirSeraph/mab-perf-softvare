@@ -1,14 +1,17 @@
-let vystup =document.getElementById("vystup_id");
-let pilot = document.getElementById("pilot");
-let copilot = document.getElementById("copilot");
-let airemptmass = document.getElementById("AirEmptMass");
-let airemptmoment = document.getElementById("AirEmptMoment");
-let Baggage= document.getElementById("Baggage");
-let Fuel = document.getElementById("Fuel");
-let Name_PIC = document.getElementById("Name_PIC");
-let date = document.getElementById("Date");
-let units = document.getElementById("units");
-let button1 = document.getElementById("button");
+//Premenné vstupov
+//let vystup =document.getElementById("vystup_id");
+let pilot = document.getElementById("pilot_id");
+let copilot = document.getElementById("copilot_id");
+let airemptmass = document.getElementById("AirEmptMass_id");
+let airemptmoment = document.getElementById("AirEmptMoment_id");
+let Baggage= document.getElementById("Baggage_id");
+let Fuel = document.getElementById("Fuel_id");
+let Name_PIC = document.getElementById("Name_PIC_id");
+let date = document.getElementById("Date_id");
+let units = document.getElementById("units_id");
+let regNumber = document.getElementById("Reg_number_id");
+//let button1 = document.getElementById("button");
+//Premenné výpočtov
 let vypocet_paliva = document.getElementById("vypocet_paliva_id");
 let vaha_vypocet = document.getElementById("vaha_vypocet_id");
 let celkovy_moment = document.getElementById("celkovy_moment_id");
@@ -62,13 +65,13 @@ Fuel.addEventListener('input', updateResults);
 
 //Update výsledkov keď sa hodnoty v input boxoch zmenia, funkcia
 function updateResults() {
-    vypocet_paliva.value = vypocet_paliva_funkcia();
-    vaha_vypocet.value = vypocet_vahy_lietadla_funkcia();
-    celkovy_moment.value = vypocet_celkoveho_momentu_funkcia();
-    pozicia_taziska.value = vypocet_pozicie_taziska_funkcia();
-    pozicia_taziska_0fuel.value = vypocet_pozicie_taziska_0fuel_funkcia();
-    pozicia_taziska_SAT.value = vypocet_pozicie_taziska_SAT_funkcia();
-    pozicia_taziska_SAT_0fuel.value = vypocet_pozicie_taziska_SAT_0fuel_funkcia();
+    vypocet_paliva.value = vypocet_paliva_funkcia().toFixed(2);
+    vaha_vypocet.value = vypocet_vahy_lietadla_funkcia().toFixed(2);
+    celkovy_moment.value = vypocet_celkoveho_momentu_funkcia().toFixed(2);
+    pozicia_taziska.value = vypocet_pozicie_taziska_funkcia().toFixed(2);
+    pozicia_taziska_0fuel.value = vypocet_pozicie_taziska_0fuel_funkcia().toFixed(2);
+    pozicia_taziska_SAT.value = vypocet_pozicie_taziska_SAT_funkcia().toFixed(2);
+    pozicia_taziska_SAT_0fuel.value = vypocet_pozicie_taziska_SAT_0fuel_funkcia().toFixed(2);
   }
 
 function vypis (){
@@ -94,19 +97,18 @@ function vypocet_paliva_funkcia_imp(){
 }
 
 function vypocet_vahy_lietadla_funkcia(){
-    return parseFloat(airemptmass.value+pilot.value+copilot.value+Baggage.value+vypocet_paliva_funkcia())
+    return parseFloat(airemptmass.value)+parseFloat(pilot.value)+parseFloat(copilot.value)+parseFloat(Baggage.value)+vypocet_paliva_funkcia()
 }
 
 function piloti_dokopy_funkcia(){
-    return pilot.value+copilot.value
+    return parseFloat(pilot.value)+parseFloat(copilot.value)
 }
 
 function vypocet_celkoveho_momentu_funkcia(){
-    return airemptmoment.value+piloti_dokopy_funkcia()*piloti_ARM+Baggage.value*batozinovy_priestor_ARM+vypocet_paliva_funkcia()*palivo_ARM
+    return parseFloat(airemptmoment.value)+piloti_dokopy_funkcia()*parseFloat(piloti_ARM)+parseFloat(Baggage.value)*parseFloat(batozinovy_priestor_ARM)+vypocet_paliva_funkcia()*parseFloat(palivo_ARM)
 }
-
 function vypocet_celkoveho_momentu_0fuel_funkcia(){
-    return airemptmoment.value+piloti_dokopy_funkcia()*piloti_ARM+Baggage.value*batozinovy_priestor_ARM+0*palivo_ARM
+    return parseFloat(airemptmoment.value)+piloti_dokopy_funkcia()*parseFloat(piloti_ARM)+parseFloat(Baggage.value)*parseFloat(batozinovy_priestor_ARM)+0*parseFloat(palivo_ARM)
 }
 
 function vypocet_pozicie_taziska_funkcia(){
@@ -120,7 +122,7 @@ function vypocet_pozicie_taziska_0fuel_funkcia(){
 function vypocet_pozicie_taziska_SAT_funkcia(){
     return vypocet_pozicie_taziska_funkcia()/1090*100
 }
-
+//Vypisuje chybný údaj
 function vypocet_pozicie_taziska_SAT_0fuel_funkcia(){
     return vypocet_pozicie_taziska_0fuel_funkcia()/1090*100
 }

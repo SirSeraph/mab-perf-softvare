@@ -2,3 +2,6 @@ Každá hodnota bude v pozadí prekonvertovávaná na imperiálne jednotky a na 
     čiže bude bulean, pri každej hodnote bude výber či to je v tej a či tej jednotke, takisto aj s výsledkami
     Ak bude metrická hodnota, bude sa prepočítavať zároveň aj v imperiálnych každý jeden výsledok a v prípade
     že aj všetky vstupy by boli napr. metrické, budeme vedieť podať výsledok v imperiálnych
+
+Knižnica pre graf envelope:
+https://www.chartjs.org/docs/latest/samples/other-charts/scatter-multi-axis.html
