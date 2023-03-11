@@ -1,17 +1,197 @@
 body{
     background-color: rgb(16, 28, 58);
     color: white;
+    font-family: "roboto";
+}
+/*Grid na rovrhnutie celej stránky*/
+.siteGrid{
+    display: grid;
+    gap: 6rem;
+    margin: 60px 60px 60px 60px;
 }
 
-.container{
-    display: flex;
-    flex-wrap: wrap;
-
-}
-
-.item{
+/*Tabulka zadávaných hodnôt*/
+.hodnotyContainer{
+    grid-column: 1;
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     text-align: center;
-    flex: 50%;
+    background-color: rgb(4, 12, 53);
+}
+
+.hodnotyContainer .item{
+    grid-column: 1/ span 2;
+    grid-row: 1;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.hodnotyContainer .item1{
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.hodnotyContainer .item1-1{
+    grid-column: 2;
+    grid-row: 2;
+}
+.hodnotyContainer .item2{
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.hodnotyContainer .item2-1{
+    grid-column: 2;
+    grid-row: 3;
+}
+.hodnotyContainer .item3{
+    grid-column: 1;
+    grid-row: 4;
+}
+
+.hodnotyContainer .item3-1{
+    grid-column: 2;
+    grid-row: 4;
+}
+.hodnotyContainer .item4{
+    grid-column: 1;
+    grid-row: 5;
+}
+
+.hodnotyContainer .item4-1{
+    grid-column: 2;
+    grid-row: 5;
+}
+.hodnotyContainer .item5{
+    grid-column: 1;
+    grid-row: 6;
+}
+
+.hodnotyContainer .item5-1{
+    grid-column: 2;
+    grid-row: 6;
+}
+.hodnotyContainer .item6{
+    grid-column: 1;
+    grid-row: 7;
+}
+
+.hodnotyContainer .item6-1{
+    grid-column: 2;
+    grid-row: 7;
+}
+
+/*Tabulka výsledkov*/
+.vysledkyContainer{
+    grid-column: 2;
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    text-align: center;
+    background-color: rgb(4, 12, 53);
+}
+
+.vysledkyContainer .grid-item{
+    grid-column: 1/ span 2;
+    grid-row: 1;
+    font-size: 20px;
+    font-weight: bold;
+}
+.vysledkyContainer .grid-item1{
+    grid-column: 1;
+    grid-row: 2;
+}
+.vysledkyContainer .grid-item1-1{
+    grid-column: 2;
+    grid-row: 2;
+}
+.vysledkyContainer .grid-item2{
+    grid-column: 1;
+    grid-row: 3;
+}
+.vysledkyContainer .grid-item2-1{
+    grid-column: 2;
+    grid-row: 3;
+}
+
+.vysledkyContainer .grid-item3{
+    grid-column: 1;
+    grid-row: 4;
+}
+.vysledkyContainer .grid-item3-1{
+    grid-column: 2;
+    grid-row: 4;
+}
+
+.vysledkyContainer .grid-item4{
+    grid-column: 1;
+    grid-row: 5;
+}
+.vysledkyContainer .grid-item4-1{
+    grid-column: 2;
+    grid-row: 5;
+}
+
+.vysledkyContainer .grid-item5{
+    grid-column: 1;
+    grid-row: 6;
+}
+.vysledkyContainer .grid-item5-1{
+    grid-column: 2;
+    grid-row: 6;
+}
+
+.vysledkyContainer .grid-item6{
+    grid-column: 1;
+    grid-row: 7;
+}
+.vysledkyContainer .grid-item6-1{
+    grid-column: 2;
+    grid-row: 7;
+}
+/*Responzívna tabulka s ukazovatelmi (letová obálka)*/
+.resposiveTable{
+    grid-column: 3;
+    width: 500px;
+    display: block;
+    background-color: white;
+}
+
+/*Spodná tabulka s inormáciami a globálnym prepínačom jednotiek*/
+.aditionalContainer{
+    grid-row: 2;
+    display: grid;
+    gap: 1rem;
+    margin: 60px 60px 60px 60px;
+}
+.item_date{
+    grid-column: 1;
+    grid-row: 1;
+}
+.item_PIC{
+    grid-column: 2;
+    grid-row: 1;
+}
+.item_Button{
+    grid-column: 3;
+    grid-row: 1;
+    text-align: right;
+}
+.item_Button button{
+    height: 40px;
+    width: 100px;
+}
+.item_unitsSelectContainer{
+    grid-column: 4;
+    grid-row: 1;
+    text-align: right;
+}
+.item_unitsSelectContainer select{
+    height: 40px;
+    width: 100px;
 }
 
 input {

@@ -1,4 +1,4 @@
-let vystup =document.getElementById("vystup");
+let vystup =document.getElementById("vystup_id");
 let pilot = document.getElementById("pilot");
 let copilot = document.getElementById("copilot");
 let airemptmass = document.getElementById("AirEmptMass");
@@ -9,8 +9,13 @@ let Name_PIC = document.getElementById("Name_PIC");
 let date = document.getElementById("Date");
 let units = document.getElementById("units");
 let button1 = document.getElementById("button");
-let vypocet_paliva = document.getElementById("vypocet_paliva");
-let vaha_vypocet = document.getElementById("vaha_vypocet");
+let vypocet_paliva = document.getElementById("vypocet_paliva_id");
+let vaha_vypocet = document.getElementById("vaha_vypocet_id");
+let celkovy_moment = document.getElementById("celkovy_moment_id");
+let pozicia_taziska = document.getElementById("pozicia_taziska_id");
+let pozicia_taziska_0fuel = document.getElementById("pozicia_taziska_0fuel_id");
+let pozicia_taziska_SAT = document.getElementById("pozicia_taziska_SAT_id");
+let pozicia_taziska_SAT_0fuel = document.getElementById("pozicia_taziska_SAT_0fuel_id");
 
 //Konštanty v metrických hodnotách
 const stredna_aerodynamicka_tetiva = 1090;
@@ -55,7 +60,7 @@ airemptmoment.addEventListener('input', updateResults);
 Baggage.addEventListener('input', updateResults);
 Fuel.addEventListener('input', updateResults);
 
-//Update výsledkov keď sa hodnoty v input boxoch zmenia funkcia
+//Update výsledkov keď sa hodnoty v input boxoch zmenia, funkcia
 function updateResults() {
     vypocet_paliva.value = vypocet_paliva_funkcia();
     vaha_vypocet.value = vypocet_vahy_lietadla_funkcia();
@@ -63,26 +68,20 @@ function updateResults() {
     pozicia_taziska.value = vypocet_pozicie_taziska_funkcia();
     pozicia_taziska_0fuel.value = vypocet_pozicie_taziska_0fuel_funkcia();
     pozicia_taziska_SAT.value = vypocet_pozicie_taziska_SAT_funkcia();
+    pozicia_taziska_SAT_0fuel.value = vypocet_pozicie_taziska_SAT_0fuel_funkcia();
   }
-
-//testovací výpis hodnôt
-function vypis_stary (){
-    vystup.innerText="Fuel Weight: " + vypocet_paliva_funkcia() +
-    " \n Aircraft Weight: " + vypocet_vahy_lietadla_funkcia() + 
-    " \n Moment celkový: " + vypocet_celkoveho_momentu_funkcia()+ 
-    " \n COG " + vypocet_pozicie_taziska()
-}
 
 function vypis (){
     vypocet_paliva = vypocet_paliva_funkcia();
     vypocet_vahy_lietadla = vypocet_vahy_lietadla_funkcia();
     celkovy_moment = vypocet_celkoveho_momentu_funkcia();
-    pozicia_taziska = vypocet_pozicie_taziska();
+    pozicia_taziska = vypocet_pozicie_taziska_funkcia();
     
-    vypocet_paliva_input.value = vypocet_paliva;
-    vaha_vypocet_input.value = vypocet_vahy_lietadla;
-    celkovy_moment_input.value = celkovy_moment;
-    pozicia_taziska_input.value = pozicia_taziska;
+    vypocet_paliva.value = vypocet_paliva;
+    vaha_vypocet.value = vypocet_vahy_lietadla;
+    celkovy_moment.value = celkovy_moment;
+    pozicia_taziska.value = pozicia_taziska;
+
 }
 
 //Vzorce funkcie
@@ -121,6 +120,11 @@ function vypocet_pozicie_taziska_0fuel_funkcia(){
 function vypocet_pozicie_taziska_SAT_funkcia(){
     return vypocet_pozicie_taziska_funkcia()/1090*100
 }
+
+function vypocet_pozicie_taziska_SAT_0fuel_funkcia(){
+    return vypocet_pozicie_taziska_0fuel_funkcia()/1090*100
+}
+
 
 
 

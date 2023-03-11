@@ -9,39 +9,119 @@
 
 <body>
 
-<div class="container">
+<div class="siteGrid">
+<div class="hodnotyContainer">
     <div class="item">
+        Numbers:
+    </div>
+    <div class="item1">
         <label for="AirEmptMass">Aircraft Empty Mass</label>
+        </div>
+        <div class="item1-1">
         <input id="AirEmptMass" value="520" type="number">
-    </div>
-    <div class="item">
+        </div>
+
+    <div class="item2">
         <label for="AirEmptMoment">Aircraft Empty Mass Moment</label>
+        </div>
+        <div class="item2-1">
         <input id="AirEmptMoment" value="160590" type="number">
-    </div>
+        </div>
 
-<div class="container">
-    <div class="item">
-        <label  for="pilot">pilot</label>
+    <div class="item3">
+        <label  for="pilot">Pilot</label>
+        </div>
+        <div class="item3-1">
         <input id="pilot" type="number" value="">
-    </div>
+        </div>
 
-    <div class="item">
-        <label for="copilot">copilot</label>
+    <div class="item4">
+        <label for="copilot">Copilot</label>
+        </div>
+        <div class="item4-1">
         <input id="copilot" type="number" value=""></div>
-    </div>
-    <div class="item">
+    <div class="item5">
         <label for="Baggage">Baggage</label >
+        </div>
+        <div class="item5-1">
         <input id="Baggage" type="number" value=""></div>
-    </div>
 
-<div class="container">
-    <div class="item">
+    <div class="item6">
         <label for="Fuel">Fuel</label>
+        </div>
+        <div class="item6-1">
         <input id="Fuel" type="number" value="">
-    </div>
+        </div>
+</div>
 
-<div class="container">
-    <div class="item">
+<div class="vysledkyContainer">
+    <div class="grid-item">
+        Results:
+    </div>
+    <div class="grid-item1">
+    <label for="vaha_vypocet_id">Total Mass</label>
+    </div>
+    <div class="grid-item1-1">
+    <input  id="vaha_vypocet_id" type="number" readonly>
+    </div>
+    <div class="grid-item2">
+        <label for="celkovy_moment_id">Total Moment</label>
+        </div>
+        <div class="grid-item2-1">
+        <input  id="celkovy_moment_id" type="number" readonly>
+        </div>
+    <div class="grid-item3">
+        <label for="pozicia_taziska_id">GOG TO</label>
+    </div>
+    <div class="grid-item3-1">
+        <input  id="pozicia_taziska_id" type="number" readonly>
+    </div>
+    <div class="grid-item4">
+        <label for="pozicia_taziska_0fuel_id">COG 0 Fuel</label>
+        </div>
+        <div class="grid-item4-1">
+        <input  id="pozicia_taziska_0fuel_id" type="number" readonly>
+        </div>
+    <div class="grid-item5">
+        <label for="pozicia_taziska_SAT_id">COG TO in %</label>
+        </div>
+        <div class="grid-item5-1">
+        <input  id="pozicia_taziska_SAT_id" type="number" readonly>
+        </div>
+    <div class="grid-item6">
+        <label for="pozicia_taziska_SAT_0fuel_id">COG in % 0 fuel</label>
+        </div>
+        <div class="grid-item6-1">
+        <input  id="pozicia_taziska_SAT_0fuel_id" type="number" readonly>
+        </div>
+</div>
+
+<div class="resposiveTable">
+</div>
+</div>
+<!--
+<div id="vystup_id"></div>
+<div id="vypocet_paliva_id"></div>
+<div id="vaha_vypocet_id"></div>
+<div id="celkovy_moment_id"></div>
+<div id="pozicia_taziska_id"></div>
+<div id="pozicia_taziska_0fuel_id"></div>
+<div id="pozicia_taziska_SAT_id"></div>
+-->
+
+<div class="aditionalContainer">
+    <div class="item_date">
+        <label for="Date">Date</label>
+        <input  id="Date" type="date" >
+    </div>
+    <div class="item_PIC">
+        <label for="Name_PIC">PIC Name</label >
+        <input id="Name_PIC" type="text">
+    </div>
+    <div class="item_Button">
+    <button id="button" onclick="vypis()">Calculate</button>
+    </div>
+    <div class="item_unitsSelectContainer">
         <select style="width: 100px" name="operation" id="units">
             <option value="Metric">Metric</option>
             <option value="Imperial">Imperial</option>
@@ -49,25 +129,6 @@
         </select>
     </div>
 </div>
-</div>
-
-<label for="Date">Date</label>
-<input  id="Date" type="date" >
-
-<div class="item">
-    <label for="Name_PIC">PIC Name</label >
-    <input id="Name_PIC" type="text"></div>
-</div>
-
-
-</br>
-<button id="button" onclick="vypis()">Calculate</button>
-
-<div id="vystup"></div>
-<div id="vypocet_paliva"></div>
-<div id="vaha_vypocet"></div>
-
-
 </body>
 <script src="script.js"></script>
 </html>
