@@ -94,7 +94,7 @@ function vypocet_paliva_funkcia_imp(){
 }
 
 function vypocet_vahy_lietadla_funkcia(){
-    return airemptmass.value+pilot.value+copilot.value+Baggage.value+vypocet_paliva_funkcia()
+    return parseFloat(airemptmass.value+pilot.value+copilot.value+Baggage.value+vypocet_paliva_funkcia())
 }
 
 function piloti_dokopy_funkcia(){
