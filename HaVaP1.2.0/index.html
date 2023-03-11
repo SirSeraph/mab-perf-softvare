@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HaVaP</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+
+<div class="container">
+    <div class="item">
+        <label for="AirEmptMass">Aircraft Empty Mass</label>
+        <input id="AirEmptMass" value="520" type="number">
+    </div>
+    <div class="item">
+        <label for="AirEmptMoment">Aircraft Empty Mass Moment</label>
+        <input id="AirEmptMoment" value="160590" type="number">
+    </div>
+
+<div class="container">
+    <div class="item">
+        <label  for="pilot">pilot</label>
+        <input id="pilot" type="number" value="">
+    </div>
+
+    <div class="item">
+        <label for="copilot">copilot</label>
+        <input id="copilot" type="number" value=""></div>
+    </div>
+    <div class="item">
+        <label for="Baggage">Baggage</label >
+        <input id="Baggage" type="number" value=""></div>
+    </div>
+
+<div class="container">
+    <div class="item">
+        <label for="Fuel">Fuel</label>
+        <input id="Fuel" type="number" value="">
+    </div>
+
+<div class="container">
+    <div class="item">
+        <select style="width: 100px" name="operation" id="units">
+            <option value="Metric">Metric</option>
+            <option value="Imperial">Imperial</option>
+            <option value="Hybrid">Hybrid</option>
+        </select>
+    </div>
+</div>
+</div>
+
+<label for="Date">Date</label>
+<input  id="Date" type="date" >
+
+<div class="item">
+    <label for="Name_PIC">PIC Name</label >
+    <input id="Name_PIC" type="text"></div>
+</div>
+
+
+</br>
+<button id="button" onclick="vypis()">Calculate</button>
+
+<div id="vystup"></div>
+<div id="vypocet_paliva"></div>
+<div id="vaha_vypocet"></div>
+
+
+</body>
+<script src="script.js"></script>
+</html>
