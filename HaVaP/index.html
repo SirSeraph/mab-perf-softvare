@@ -22,39 +22,90 @@
         <label for="AirEmptMass_id">Aircraft Empty Mass: </label>
         </div>
         <div class="item1-1">
-        <input id="AirEmptMass_id" value="530" type="number" onchange="vypis()">
+        <input id="AirEmptMass_id" value="530" type="number" onchange="updateResults(); vypis()">
+        </div>
+        <div class="unitChoiceInput">
+            <div class="item1-1-1">
+                <select name="unitChange" id="units_AirEmptMass_id">
+                    <option value="Metric">kg</option>
+                    <option value="Imperial">lbs</option>
+                </select>
+            </div>
         </div>
 
     <div class="item2">
         <label for="AirEmptMoment_id">Aircraft Empty Mass Moment: </label>
         </div>
         <div class="item2-1">
-        <input id="AirEmptMoment_id" value="160590" type="number" onchange="vypis()">
+        <input id="AirEmptMoment_id" value="160590" type="number" onchange="updateResults(); vypis()">
+        </div>
+        <div class="unitChoiceInput">
+            <div class="item2-1-1">
+                <select name="unitChange" id="units_AirEmptMoment_id">
+                    <option value="Metric">m.kg</option>
+                    <option value="Imperial">in.lbs</option>
+                </select>
+            </div>
         </div>
 
     <div class="item3">
         <label  for="pilot_id">Pilot: </label>
         </div>
         <div class="item3-1">
-        <input id="pilot_id" type="number" value="" onchange="vypis()">
+        <input id="pilot_id" type="number" value="" onchange="updateResults(); vypis()">
+        </div>
+        <div class="unitChoiceInput">
+            <div class="item3-1-1">
+                <select name="unitChange" id="units_pilot_id">
+                    <option value="Metric">kg</option>
+                    <option value="Imperial">lbs</option>
+                </select>
+            </div>
         </div>
 
     <div class="item4">
         <label for="copilot_id">Copilot: </label>
         </div>
         <div class="item4-1">
-        <input id="copilot_id" type="number" value="" onchange="vypis()"></div>
+        <input id="copilot_id" type="number" value="" onchange="updateResults(); vypis()">
+        </div>
+        <div class="unitChoiceInput">
+            <div class="item4-1-1">
+                <select name="unitChange" id="units_copilot_id">
+                    <option value="Metric">kg</option>
+                    <option value="Imperial">lbs</option>
+                </select>
+            </div>
+        </div>
+
     <div class="item5">
         <label for="Baggage_id">Baggage: </label >
         </div>
         <div class="item5-1">
-        <input id="Baggage_id" type="number" value="" onchange="vypis()"></div>
+        <input id="Baggage_id" type="number" value="" onchange="updateResults(); vypis()">
+        </div>
+        <div class="unitChoiceInput">
+            <div class="item5-1-1">
+                <select name="unitChange" id="units_Baggage_id">
+                    <option value="Metric">kg</option>
+                    <option value="Imperial">lbs</option>
+                </select>
+            </div>
+        </div>
 
     <div class="item6">
         <label for="Fuel_id">Fuel: </label>
         </div>
         <div class="item6-1">
-        <input id="Fuel_id" type="number" value="" onchange="vypis()">
+        <input id="Fuel_id" type="number" value="" onchange="updateResults(); vypis()">
+        </div>
+        <div class="unitChoiceInput">
+            <div class="item1-1-1">
+                <select name="unitChange" id="units_Fuel_id">
+                    <option value="Metric">l</option>
+                    <option value="Imperial">USgal</option>
+                </select>
+            </div>
         </div>
 </div>
 
@@ -63,41 +114,78 @@
         Results:
     </div>
     <div class="grid-item1">
-    <label for="vaha_vypocet_id">Total Mass: </label>
+    <label for="vaha_vypocet_id">TO Mass: </label>
     </div>
     <div class="grid-item1-1">
     <input  id="vaha_vypocet_id" type="text" readonly>
     </div>
+    <div class="unitChoiceOutput">
+        <div class="grid-item1-1-1">
+            <select name="unitChange" id="units_vaha_vypocet_id">
+                <option value="Metric">kg</option>
+                <option value="Imperial">lbs</option>
+            </select>
+        </div>
+    </div>
+
     <div class="grid-item2">
-        <label for="celkovy_moment_id">Total Moment: </label>
+        <label for="vaha_vypocet_0fuel_id">0 Fuel Mass: </label>
         </div>
         <div class="grid-item2-1">
-        <input  id="celkovy_moment_id" type="text" readonly>
+        <input  id="vaha_vypocet_0fuel_id" type="text" readonly>
         </div>
+    <div class="unitChoiceOutput">
+        <div class="grid-item2-1-1">
+            <select name="unitChange" id="units_vaha_vypocet_0fuel_id">
+                <option value="Metric">kg</option>
+                <option value="Imperial">lbs</option>
+            </select>
+        </div>
+    </div>
     <div class="grid-item3">
         <label for="pozicia_taziska_id">GOG TO: </label>
     </div>
     <div class="grid-item3-1">
         <input  id="pozicia_taziska_id" type="text" readonly>
     </div>
+    <div class="unitChoiceOutput">
+        <div class="grid-item3-1-1">
+            <select name="unitChange" id="units_pozicia_taziska_id">
+                <option value="Metric">mm</option>
+                <option value="Imperial">in</option>
+            </select>
+        </div>
+    </div>
+
     <div class="grid-item4">
-        <label for="pozicia_taziska_0fuel_id">COG 0 Fuel: </label>
+        <label for="pozicia_taziska_0fuel_id">0 Fuel COG: </label>
         </div>
         <div class="grid-item4-1">
         <input  id="pozicia_taziska_0fuel_id" type="text" readonly>
         </div>
+        <div class="unitChoiceOutput">
+            <div class="grid-item4-1-1">
+                <select name="unitChange" id="units_pozicia_taziska_0fuel_id">
+                    <option value="Metric">mm</option>
+                    <option value="Imperial">in</option>
+                </select>
+            </div>
+        </div>
+    
     <div class="grid-item5">
-        <label for="pozicia_taziska_SAT_id">COG TO in %: </label>
+        <label for="pozicia_taziska_SAT_id">COG TO: </label>
         </div>
         <div class="grid-item5-1">
         <input  id="pozicia_taziska_SAT_id" type="text" readonly>
         </div>
+        %
     <div class="grid-item6">
-        <label for="pozicia_taziska_SAT_0fuel_id">COG in % 0 fuel: </label>
+        <label for="pozicia_taziska_SAT_0fuel_id">0 fuel COG: </label>
         </div>
         <div class="grid-item6-1">
         <input  id="pozicia_taziska_SAT_0fuel_id" type="text" readonly>
         </div>
+        %
 </div>
 <div class="envelope">
     <div class="nadpisEnvelope">
@@ -107,14 +195,6 @@
     </div>
 </div>
 </div>
-
-<div id="vystup_id"></div>
-<div id="vypocet_paliva_id"></div>
-<div id="vaha_vypocet_id"></div>
-<div id="celkovy_moment_id"></div>
-<div id="pozicia_taziska_id"></div>
-<div id="pozicia_taziska_0fuel_id"></div>
-<div id="pozicia_taziska_SAT_id"></div>
 
 <div class="aditionalContainer">
     <div class="item_date">
@@ -138,7 +218,7 @@
     -->
 
     <div class="item_unitsSelectContainer">
-        <select style="width: 100px" name="operation" id="units_id">
+        <select style="width: 100px" name="vyberJednotiek" id="units_id">
             <option value="Metric">Metric</option>
             <option value="Imperial">Imperial</option>
             <option value="Hybrid">Hybrid</option>
@@ -151,6 +231,14 @@
     Faculty of Aeronautics, Department of Flight Training, TUKE<br>
     Kosice 2023</p>
 </footer>
+
+<div id="vystup_id"></div>
+<div id="vypocet_paliva_id"></div>
+<div id="vaha_vypocet_id"></div>
+<div id="celkovy_moment_id"></div>
+<div id="pozicia_taziska_id"></div>
+<div id="pozicia_taziska_0fuel_id"></div>
+<div id="pozicia_taziska_SAT_id"></div>
 
 </body>
 <script src="script.js"></script>

@@ -25,12 +25,16 @@ body{
 }
 
 .hodnotyContainer .item{
-    grid-column: 1/ span 2;
+    grid-column: 1/ span 3;
     grid-row: 1;
     font-size: 20px;
     font-weight: bold;
     text-align: center;
     background-color: rgb(101, 168, 0);
+}
+
+.hodnotyContainer .unitChoiceInput{
+    grid-column: 3;
 }
 
 .hodnotyContainer .item1{
@@ -102,13 +106,18 @@ body{
 }
 
 .vysledkyContainer .grid-item{
-    grid-column: 1/ span 2;
+    grid-column: 1/ span 3;
     grid-row: 1;
     font-size: 20px;
     font-weight: bold;
     text-align: center;
     background-color: rgb(101, 168, 0);
 }
+
+.hodnotyContainer .unitChoiceOutput{
+    grid-column: 3;
+}
+
 .vysledkyContainer .grid-item1{
     grid-column: 1;
     grid-row: 2;
@@ -161,7 +170,15 @@ body{
     grid-column: 2;
     grid-row: 7;
 }
-
+/*Zmena jednotiek (select units)*/
+.unitChoiceInput select{
+    width: 60px;
+    height: 35px;
+}
+.unitChoiceOutput select{
+    width: 60px;
+    height: 35px;
+}
 /*Responzívna tabulka s ukazovatelmi (letová obálka)*/
 .envelope{
     grid-column: 3;
@@ -181,7 +198,7 @@ body{
 }
 .resposiveTable{
     grid-row: 2;
-    width: 600px;
+    width: 500px;
     height: 250px;
     background-color: white;
 }
@@ -233,3 +250,4 @@ body{
 input{
     height: 30px; 
 }
+
