@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./CSS/style.css">
     <link rel="stylesheet" href="./CSS/footer.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -22,7 +23,7 @@
         <label for="AirEmptMass_id">Aircraft Empty Mass: </label>
         </div>
         <div class="item1-1">
-        <input id="AirEmptMass_id" value="530" type="number" onchange="updateResults(); vypis()">
+        <input id="AirEmptMass_id" value="530" type="number" onchange="updateResults()">
         </div>
         <div class="unitChoiceInput">
             <div class="item1-1-1">
@@ -37,7 +38,7 @@
         <label for="AirEmptMoment_id">Aircraft Empty Mass Moment: </label>
         </div>
         <div class="item2-1">
-        <input id="AirEmptMoment_id" value="160590" type="number" onchange="updateResults(); vypis()">
+        <input id="AirEmptMoment_id" value="160590" type="number" onchange="updateResults()">
         </div>
         <div class="unitChoiceInput">
             <div class="item2-1-1">
@@ -52,7 +53,7 @@
         <label  for="pilot_id">Pilot: </label>
         </div>
         <div class="item3-1">
-        <input id="pilot_id" type="number" value="" onchange="updateResults(); vypis()">
+        <input id="pilot_id" type="number" value="" onchange="updateResults()">
         </div>
         <div class="unitChoiceInput">
             <div class="item3-1-1">
@@ -67,7 +68,7 @@
         <label for="copilot_id">Copilot: </label>
         </div>
         <div class="item4-1">
-        <input id="copilot_id" type="number" value="" onchange="updateResults(); vypis()">
+        <input id="copilot_id" type="number" value="" onchange="updateResults()">
         </div>
         <div class="unitChoiceInput">
             <div class="item4-1-1">
@@ -82,7 +83,7 @@
         <label for="Baggage_id">Baggage: </label >
         </div>
         <div class="item5-1">
-        <input id="Baggage_id" type="number" value="" onchange="updateResults(); vypis()">
+        <input id="Baggage_id" type="number" value="" onchange="updateResults()">
         </div>
         <div class="unitChoiceInput">
             <div class="item5-1-1">
@@ -97,7 +98,7 @@
         <label for="Fuel_id">Fuel: </label>
         </div>
         <div class="item6-1">
-        <input id="Fuel_id" type="number" value="" onchange="updateResults(); vypis()">
+        <input id="Fuel_id" type="number" value="" onchange="updateResults()">
         </div>
         <div class="unitChoiceInput">
             <div class="item1-1-1">
@@ -191,7 +192,8 @@
     <div class="nadpisEnvelope">
         Mass & Balance Envelope
     </div>
-        <div class="resposiveTable">
+    <div class="resposiveTable">
+        <canvas id="myChart"></canvas>
     </div>
 </div>
 </div>
@@ -218,6 +220,7 @@
     -->
 
     <div class="item_unitsSelectContainer">
+        <label for="units_id">Units preset: </label >
         <select style="width: 100px" name="vyberJednotiek" id="units_id">
             <option value="Metric">Metric</option>
             <option value="Imperial">Imperial</option>

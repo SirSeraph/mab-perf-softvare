@@ -82,30 +82,18 @@ Fuel.addEventListener('input', updateResults);
 
 //Update výsledkov keď sa hodnoty v input boxoch zmenia, funkcia
 function updateResults() {
+    //Výpočty v pozadí
     vypocet_paliva.value = vypocet_paliva_funkcia().toFixed(2);
+    celkovy_moment.value = vypocet_celkoveho_momentu_funkcia().toFixed(2);
+    //Výpočty aj renderované
     vaha_vypocet.value = vypocet_vahy_lietadla_funkcia().toFixed(2);
     vaha_vypocet_0fuel.value = vypocet_vahy_lietadla_0fuel_funkcia().toFixed(2);
     pozicia_taziska.value = vypocet_pozicie_taziska_funkcia().toFixed(2);
     pozicia_taziska_0fuel.value = vypocet_pozicie_taziska_0fuel_funkcia().toFixed(2);
     pozicia_taziska_SAT.value = vypocet_pozicie_taziska_SAT_funkcia().toFixed(2);
     pozicia_taziska_SAT_0fuel.value = vypocet_pozicie_taziska_SAT_0fuel_funkcia().toFixed(2);
-    celkovy_moment.value = vypocet_celkoveho_momentu_funkcia().toFixed(2);
 }
 
-function vypis () {
-    let vypocet_paliva = vypocet_paliva_funkcia();
-    let vypocet_vahy_lietadla = vypocet_vahy_lietadla_funkcia();
-    let vypocet_vahy_lietadla_0fuel = vypocet_vahy_lietadla_0fuel_funkcia();
-    let celkovy_moment = vypocet_celkoveho_momentu_funkcia();
-    let pozicia_taziska = vypocet_pozicie_taziska_funkcia();
-    
-    vypocet_paliva.value = vypocet_paliva;
-    vaha_vypocet.value = vypocet_vahy_lietadla;
-    celkovy_moment.value = celkovy_moment;
-    pozicia_taziska.value = pozicia_taziska;
-    vaha_vypocet_0fuel.value = vypocet_vahy_lietadla_0fuel;
-
-}
 //Event listener pre zmenu vyberJednotiek
 units.addEventListener('change', function() {
     const selectedValue = this.value;
@@ -136,11 +124,74 @@ units.addEventListener('change', function() {
     units_Baggage.value = 'Imperial';
     units_Fuel.value = 'Metric';
     units_vaha_vypocet.value = 'Imperial';
-    units_vaha_vypocet_0fuel.value = 'Imperial';
-    units_pozicia_taziska.value = 'Imperial';
+    units_vaha_vypocet_0fuel.value = 'Metric';
+    units_pozicia_taziska.value = 'Metric';
     units_pozicia_taziska_0fuel.value = 'Imperial';
   }
 });
+
+//Dožadovanie sa momentálne zvolených jednotiek pre jednotlivé výpočty
+
+//Letová obálka
+var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+  type: 'scatter',
+  data: {
+    datasets: [{
+      label: '',
+      data: [],
+      backgroundColor: 'red'
+    }]
+  },
+  options: {
+    tooltips: {
+      backgroundColor: "rgba(0, 0, 0, 0.8)",
+      titleFontSize: 16,
+      bodyFontSize: 14
+    },
+    maintainAspectRatio: false,
+    scales: {
+      x: {
+        type: 'linear',
+        position: 'bottom',
+        suggestedMin: 21,
+        suggestedMax: 37
+      },
+      y: {
+        type: 'linear',
+        position: 'bottom',
+        suggestedMin: 520,
+        suggestedMax: 780
+      }
+    }
+  },
+  plugins: [{
+    beforeDraw: function(chart, args, options) {
+      var chartArea = chart.chartArea;
+      var ctx = chart.ctx;
+      var x = chart.scales.x.getPixelForValue(22.9);
+      var y = chart.scales.y.getPixelForValue(airemptmass.value);
+      var width = chart.scales.x.getPixelForValue(22.9 + 12.9) - x;
+      var height = chart.scales.y.getPixelForValue(520 + 210) - y;
+      ctx.fillStyle = 'lightblue';
+      ctx.fillRect(x, y, width, height);
+      ctx.strokeStyle = 'blue';
+      ctx.strokeRect(x, y, width, height);
+    }
+  }]  
+});
+
+setInterval(function() {
+    var dot1_x = vypocet_vahy_lietadla_funkcia();
+    var dot1_y = vypocet_pozicie_taziska_SAT_funkcia();
+    var dot2_x = vypocet_vahy_lietadla_0fuel_funkcia();
+    var dot2_y = vypocet_pozicie_taziska_SAT_0fuel_funkcia();
+    chart.data.datasets[0].data = [
+        {x: dot1_y, y: dot1_x, label: "TO Weight and Balance"},
+        {x: dot2_y, y: dot2_x, label: "0 Fuel Weight and Balance"}    
+    ];
+    chart.update();
+}, 1500);
 
 //Vzorce funkcie
 function vypocet_paliva_funkcia(){
