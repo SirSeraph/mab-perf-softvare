@@ -203,6 +203,10 @@ body{
     background-color: white;
 }
 
+#myChart {
+    width: 500px;
+    height: 250px;
+}
 /*Spodná tabulka s inormáciami a globálnym prepínačom jednotiek*/
 .aditionalContainer{
     grid-row: 2;
