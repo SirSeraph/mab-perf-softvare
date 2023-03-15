@@ -124,13 +124,13 @@ units.addEventListener('change', function() {
     units_Baggage.value = 'Imperial';
     units_Fuel.value = 'Metric';
     units_vaha_vypocet.value = 'Imperial';
-    units_vaha_vypocet_0fuel.value = 'Metric';
+    units_vaha_vypocet_0fuel.value = 'Imperial';
     units_pozicia_taziska.value = 'Metric';
-    units_pozicia_taziska_0fuel.value = 'Imperial';
+    units_pozicia_taziska_0fuel.value = 'Metric';
   }
 });
 
-//Dožadovanie sa momentálne zvolených jednotiek pre jednotlivé výpočty
+//Dožadovanie sa momentálne zvolených jednotiek pre jednotlivé input boxy
 
 //Letová obálka
 var ctx = document.getElementById('myChart').getContext('2d');
@@ -168,6 +168,7 @@ var chart = new Chart(ctx, {
       }
     }
   },
+  //zobrazenie letovej obálky na grafe
   plugins: [{
     beforeDraw: function(chart, args, options) {
       var chartArea = chart.chartArea;

@@ -22,6 +22,7 @@ body{
     background-color: rgb(4, 12, 53);
     align-items: center;
     padding: 0px 5px 0px 5px;
+    border-radius: 3px;
 }
 
 .hodnotyContainer .item{
@@ -31,6 +32,7 @@ body{
     font-weight: bold;
     text-align: center;
     background-color: rgb(101, 168, 0);
+    border-radius: 2px;
 }
 
 .hodnotyContainer .unitChoiceInput{
@@ -103,6 +105,7 @@ body{
     background-color: rgb(4, 12, 53);
     align-items: center;
     padding: 0px 5px 0px 5px;
+    border-radius: 3px;
 }
 
 .vysledkyContainer .grid-item{
@@ -112,6 +115,7 @@ body{
     font-weight: bold;
     text-align: center;
     background-color: rgb(101, 168, 0);
+    border-radius: 2px;
 }
 
 .hodnotyContainer .unitChoiceOutput{
@@ -188,6 +192,7 @@ body{
     background-color: rgb(4, 12, 53);
     align-items: center;
     padding: 0px 5px 0px 5px;
+    border-radius: 3px;
 }
 .nadpisEnvelope{
     grid-row: 1;
@@ -195,12 +200,14 @@ body{
     font-weight: bold;
     text-align: center;
     background-color: rgb(101, 168, 0);
+    border-radius: 2px;
 }
 .resposiveTable{
     grid-row: 2;
     width: 500px;
     height: 250px;
     background-color: white;
+    border-radius: 3px;
 }
 
 #myChart {
@@ -249,9 +256,11 @@ body{
 .aditionalContainer input {
     height: 30px;
     text-align: center;
+    border-radius: 3px;
 }
 
 input{
     height: 30px; 
+    border-radius: 3px;
 }
 
