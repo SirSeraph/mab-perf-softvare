@@ -138,26 +138,29 @@ var chart = new Chart(ctx, {
   type: 'scatter',
   data: {
     datasets: [{
-      label: '',
+      label: 'Takeoff and 0Fuel',
       data: [],
       backgroundColor: 'red'
     }]
   },
   options: {
-    tooltips: {
-      backgroundColor: "rgba(0, 0, 0, 0.8)",
-      titleFontSize: 16,
-      bodyFontSize: 14
-    },
     maintainAspectRatio: false,
     scales: {
       x: {
+        title: {
+          display: true,
+          text: '%MAC'
+        },
         type: 'linear',
         position: 'bottom',
         suggestedMin: 21,
         suggestedMax: 37
       },
       y: {
+        title: {
+          display: true,
+          text: 'Mass'
+        },
         type: 'linear',
         position: 'bottom',
         suggestedMin: 520,
@@ -187,8 +190,8 @@ setInterval(function() {
     var dot2_x = vypocet_vahy_lietadla_0fuel_funkcia();
     var dot2_y = vypocet_pozicie_taziska_SAT_0fuel_funkcia();
     chart.data.datasets[0].data = [
-        {x: dot1_y, y: dot1_x, label: "TO Weight and Balance"},
-        {x: dot2_y, y: dot2_x, label: "0 Fuel Weight and Balance"}    
+        {x: dot1_y, y: dot1_x},
+        {x: dot2_y, y: dot2_x}    
     ];
     chart.update();
 }, 1500);
