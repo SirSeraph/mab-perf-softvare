@@ -238,13 +238,29 @@ function prepocet_metricke_na_imperialne(){
   //Výpočet váhy TO
   if (units_vaha_vypocet.value === "Imperial"){
     vypocet_vahy_hodnota = (vypocet_vahy_lietadla_funkcia()*2.2046226218).toFixed(2);
+    
+    if (airEmptMassUnits.value === "Imperial"){
     setx = airemptmass.value;
     sety = 1609
+    }
+    else if (airEmptMassUnits.value === "Metric"){
+    setx = airemptmass.value*2.2046226218;
+    sety = 1609
+    }
+
   }
   else if (units_vaha_vypocet.value === "Metric"){
     vypocet_vahy_hodnota = vypocet_vahy_lietadla_funkcia().toFixed(2);
-    setx = airemptmass.value;
-    sety = 730
+    
+    if (airEmptMassUnits.value === "Imperial"){
+      setx = airemptmass.value*0.45359237;
+      sety = 730
+      }
+      else if (airEmptMassUnits.value === "Metric"){
+      setx = airemptmass.value;
+      sety = 730
+      }  
+
   }
   //Výpočet váhy 0fuel
   if (units_vaha_vypocet_0fuel.value === "Imperial"){
@@ -339,11 +355,20 @@ function updateChart() {
   setInterval(function() {
       var dot1_x = vypocet_vahy_hodnota;
       var dot1_y = vypocet_pozicie_taziska_SAT_funkcia();
-      var dot2_x = vypocet_vahy_0fuel_hodnota;
+      if (units_vaha_vypocet.value === "Imperial" && units_vaha_vypocet_0fuel.value === "Metric"){
+        var dot2_x = vypocet_vahy_0fuel_hodnota*2.2046226218;
+      }
+      else if (units_vaha_vypocet.value === "Metric" && units_vaha_vypocet_0fuel.value === "Imperial"){
+        var dot2_x = vypocet_vahy_0fuel_hodnota*0.45359237;
+      }
+      else {
+        var dot2_x = vypocet_vahy_0fuel_hodnota;
+      }
       var dot2_y = vypocet_pozicie_taziska_SAT_0fuel_funkcia();
       chart.data.datasets[0].data = [          
         {x: dot1_y, y: dot1_x},          
-        {x: dot2_y, y: dot2_x}];
+        {x: dot2_y, y: dot2_x}
+      ];
       chart.update();
   }, 1500);
 }
