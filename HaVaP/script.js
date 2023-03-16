@@ -45,20 +45,17 @@ const piloti_ARM=143;
 const batozinovy_priestor_ARM = 824;
 const palivo_ARM=824;
 
-//Konštanty v imperiálnych hodnotách momentálne nepoužívané
-//const stredna_aerodynamicka_tetiva_imp = 42.9;
-//const limita_polohy_taziska_vpredu_imp = 9.84;
-//const limita_polohy_taziska_vzadu_imp = 15.35;
-//const piloti_ARM_imp=5.63;
-//const batozinovy_priestor_ARM_imp = 32.44;
-//const palivo_ARM_imp=32.44;
-
 //max-min
-const max_gross_weight = 730;
-const max_baggage_weight = 20;
+const max_gross_weight_kg = 730;
+const max_gross_weight_lbs = 1609;
+const max_baggage_weight_kg = 20;
+const max_baggage_weight_lbs = 44;
 const min_fuel_kg = 15;
 const max_fuel_kg = 59.28;
-const min_pilot_weight = 55;
+const min_pilot_weight_kg = 55;
+const min_pilot_weight_lbs = 121.25;
+const max_gross_weight_moment_kg = 204312;
+const max_gross_weight_moment_imp = 17744;
 
 //Current datum
 window.onload =(event) => {
@@ -93,6 +90,13 @@ airemptmass.addEventListener('input', updateResults);
 airemptmoment.addEventListener('input', updateResults);
 Baggage.addEventListener('input', updateResults);
 Fuel.addEventListener('input', updateResults);
+
+pilot.addEventListener('input', limity);
+copilot.addEventListener('input', limity);
+airemptmass.addEventListener('input', limity);
+airemptmoment.addEventListener('input', limity);
+Baggage.addEventListener('input', limity);
+Fuel.addEventListener('input', limity);
 
 pilot.addEventListener('input', updateChart);
 copilot.addEventListener('input', updateChart);
@@ -178,7 +182,7 @@ function prepocet_imperialne_na_metricke(){
     airEmptMass_metricke = parseFloat(airemptmass.value)*0.45359237;
   }
   else if (airEmptMassUnits.value === "Metric"){
-    if(airemptmass.value > 730){
+    if(airemptmass.value == 1168.449989554){
       airemptmass.value = 530;
     }
     airEmptMass_metricke = parseFloat(airemptmass.value)*1;
@@ -416,4 +420,136 @@ function vypocet_pozicie_taziska_SAT_funkcia(){
 }
 function vypocet_pozicie_taziska_SAT_0fuel_funkcia(){
     return vypocet_pozicie_taziska_0fuel_funkcia()/1090*100;
+}
+
+//Limity hodnôt -> vyfarbenie input boxov pri prekročení limitných hodnôt
+function limity(){
+  if (parseFloat(airemptmass.value) > max_gross_weight_kg && airEmptMassUnits.value === "Metric") {
+    airemptmass.style.backgroundColor = 'red';
+    airemptmass.style.borderColor = "red";
+  }
+  else if (parseFloat(airemptmass.value) > max_gross_weight_lbs && airEmptMassUnits.value === "Imperial") {
+    airemptmass.style.backgroundColor = 'red';
+    airemptmass.style.borderColor = "red";
+  }
+  else {
+    airemptmass.style.backgroundColor = "white";
+    airemptmass.style.borderColor = "white";
+  }
+
+  if (parseFloat(airemptmoment.value) > max_gross_weight_moment_kg && airEmptMassMomentUnits.value === "Metric") {
+    airemptmoment.style.backgroundColor = 'red';
+    airemptmoment.style.borderColor = "red";
+  }
+  else if (parseFloat(airemptmoment.value) > max_gross_weight_moment_imp && airEmptMassMomentUnits.value === "Imperial") {
+    airemptmoment.style.backgroundColor = 'red';
+    airemptmoment.style.borderColor = "red";
+  }
+  else {
+    airemptmoment.style.backgroundColor = "white";
+    airemptmoment.style.borderColor = "white";
+  }
+
+  if (parseFloat(piloti_dokopy_funkcia()) < min_pilot_weight_kg && units_pilot.value === "Metric") {
+    pilot.style.backgroundColor = "red";
+    pilot.style.borderColor = "red";
+    copilot.style.backgroundColor = "red";
+    copilot.style.borderColor = "red";
+  } else if (parseFloat(piloti_dokopy_funkcia()) < min_pilot_weight_lbs && units_pilot.value === "Imperial") {
+    pilot.style.backgroundColor = "red";
+    pilot.style.borderColor = "red";
+    copilot.style.backgroundColor = "red";
+    copilot.style.borderColor = "red";
+  } else {
+    pilot.style.backgroundColor = "white";
+    pilot.style.borderColor = "white";
+    copilot.style.backgroundColor = "white";
+    copilot.style.borderColor = "white";
+  }
+
+  if (parseFloat(Baggage.value) > max_baggage_weight_kg && units_Baggage.value === "Metric") {
+    Baggage.style.backgroundColor = "red";
+    Baggage.style.borderColor = "red";
+  } else if (parseFloat(Baggage.value) > max_baggage_weight_lbs && units_Baggage.value === "Imperial"){
+    Baggage.style.backgroundColor = "red";
+    Baggage.style.borderColor = "red";
+  }
+  else {
+    Baggage.style.backgroundColor = "white";
+    Baggage.style.borderColor = "white";
+  }
+
+  if (Fuel_metricke > max_fuel_kg) {
+    Fuel.style.backgroundColor = "red";
+    Fuel.style.borderColor = "red";
+  } else if (Fuel_metricke < min_fuel_kg){
+    Fuel.style.backgroundColor = "orange";
+    Fuel.style.borderColor = "orange";
+  }
+  else {
+    Fuel.style.backgroundColor = "white";
+    Fuel.style.borderColor = "white";
+  }
+
+  if (vypocet_pozicie_taziska_funkcia() > limita_polohy_taziska_vzadu) {
+    pozicia_taziska.style.backgroundColor = "red";
+    pozicia_taziska.style.borderColor = "red";
+    pozicia_taziska_SAT.style.backgroundColor = "red";
+    pozicia_taziska_SAT.style.borderColor = "red";
+  } else if (vypocet_pozicie_taziska_funkcia() < limita_polohy_taziska_vpredu){
+    pozicia_taziska.style.backgroundColor = "red";
+    pozicia_taziska.style.borderColor = "red";
+    pozicia_taziska_SAT.style.backgroundColor = "red";
+    pozicia_taziska_SAT.style.borderColor = "red";
+  }
+  else {
+    pozicia_taziska.style.backgroundColor = "white";
+    pozicia_taziska.style.borderColor = "white";
+    pozicia_taziska_SAT.style.backgroundColor = "white";
+    pozicia_taziska_SAT.style.borderColor = "white";
+  }
+
+  if (vypocet_pozicie_taziska_0fuel_funkcia() > limita_polohy_taziska_vzadu) {
+    pozicia_taziska_0fuel.style.backgroundColor = "red";
+    pozicia_taziska_0fuel.style.borderColor = "red";
+    pozicia_taziska_SAT_0fuel.style.backgroundColor = "red";
+    pozicia_taziska_SAT_0fuel.style.borderColor = "red";
+  } else if (vypocet_pozicie_taziska_0fuel_funkcia() < limita_polohy_taziska_vpredu){
+    pozicia_taziska_0fuel.style.backgroundColor = "red";
+    pozicia_taziska_0fuel.style.borderColor = "red";
+    pozicia_taziska_SAT_0fuel.style.backgroundColor = "red";
+    pozicia_taziska_SAT_0fuel.style.borderColor = "red";
+  }
+  else {
+    pozicia_taziska_0fuel.style.backgroundColor = "white";
+    pozicia_taziska_0fuel.style.borderColor = "white";
+    pozicia_taziska_SAT_0fuel.style.backgroundColor = "white";
+    pozicia_taziska_SAT_0fuel.style.borderColor = "white";
+  }
+
+  if (parseFloat(vaha_vypocet.value) > max_gross_weight_kg && units_vaha_vypocet.value === "Metric") {
+    vaha_vypocet.style.backgroundColor = 'red';
+    vaha_vypocet.style.borderColor = "red";
+  }
+  else if (parseFloat(vaha_vypocet.value) > max_gross_weight_lbs && units_vaha_vypocet.value === "Imperial") {
+    vaha_vypocet.style.backgroundColor = 'red';
+    vaha_vypocet.style.borderColor = "red";
+  }
+  else {
+    vaha_vypocet.style.backgroundColor = "white";
+    vaha_vypocet.style.borderColor = "white";
+  }
+
+  if (parseFloat(vaha_vypocet_0fuel.value) > max_gross_weight_kg && units_vaha_vypocet_0fuel.value === "Metric") {
+    vaha_vypocet_0fuel.style.backgroundColor = 'red';
+    vaha_vypocet_0fuel.style.borderColor = "red";
+  }
+  else if (parseFloat(vaha_vypocet_0fuel.value) > max_gross_weight_lbs && units_vaha_vypocet_0fuel.value === "Imperial") {
+    vaha_vypocet_0fuel.style.backgroundColor = 'red';
+    vaha_vypocet_0fuel.style.borderColor = "red";
+  }
+  else {
+    vaha_vypocet_0fuel.style.backgroundColor = "white";
+    vaha_vypocet_0fuel.style.borderColor = "white";
+  }
 }

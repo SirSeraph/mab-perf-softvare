@@ -176,11 +176,11 @@ body{
 }
 /*Zmena jednotiek (select units)*/
 .unitChoiceInput select{
-    width: 60px;
+    width: 66px;
     height: 35px;
 }
 .unitChoiceOutput select{
-    width: 60px;
+    width: 66px;
     height: 35px;
 }
 /*Responzívna tabulka s ukazovatelmi (letová obálka)*/
