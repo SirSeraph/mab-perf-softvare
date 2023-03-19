@@ -553,3 +553,4 @@ function limity(){
     vaha_vypocet_0fuel.style.borderColor = "white";
   }
 }
+
