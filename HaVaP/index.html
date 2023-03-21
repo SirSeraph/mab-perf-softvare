@@ -278,7 +278,7 @@
       </div>
       <div class="item_Callsign">
         <label for="Reg_number_id">Registration number: </label>
-        <input id="Reg_number_id" type="text" onchange="updateResults()"/>
+        <input id="Reg_number_id" type="text" oninput="this.value = this.value.toUpperCase()" onchange="updateResults()"/>
       </div>
       <div class="item_PIC">
         <label for="Name_PIC_id">PIC Name: </label>
