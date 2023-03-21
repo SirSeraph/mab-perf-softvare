@@ -38,9 +38,6 @@ let units_pozicia_taziska = document.getElementById("units_pozicia_taziska_id");
 let units_pozicia_taziska_0fuel = document.getElementById("units_pozicia_taziska_0fuel_id");
 
 //Konštanty v metrických hodnotách
-const stredna_aerodynamicka_tetiva = 1090;
-const limita_polohy_taziska_vpredu = 250;
-const limita_polohy_taziska_vzadu = 390;
 const piloti_ARM=143;
 const batozinovy_priestor_ARM = 824;
 const palivo_ARM=824;
@@ -56,6 +53,9 @@ const min_pilot_weight_kg = 55;
 const min_pilot_weight_lbs = 121.25;
 const max_gross_weight_moment_kg = 204312;
 const max_gross_weight_moment_imp = 17744;
+const stredna_aerodynamicka_tetiva = 1090;
+const limita_polohy_taziska_vpredu = 250;
+const limita_polohy_taziska_vzadu = 390;
 
 //Current datum
 window.onload =(event) => {
@@ -104,6 +104,21 @@ airemptmass.addEventListener('input', updateChart);
 airemptmoment.addEventListener('input', updateChart);
 Baggage.addEventListener('input', updateChart);
 Fuel.addEventListener('input', updateChart);
+
+//Update prídavných informácií
+Name_PIC.addEventListener('input', updateInfo);
+date.addEventListener('input', updateInfo);
+regNumber.addEventListener('input', updateInfo);
+
+let namePICValue = "";
+let dateValue = "";
+let regNumberValue = "";
+
+function updateInfo(){
+  namePICValue = Name_PIC.value;
+  dateValue = date.value;
+  regNumberValue = regNumber.value;
+}
 
 //Update výsledkov keď sa hodnoty v input boxoch zmenia, funkcia
 function updateResults() {
@@ -173,6 +188,14 @@ let copilot_metricke;
 let Baggage_metricke;
 let Fuel_metricke;
 
+//Vypisovanie jednotiek do PDF
+let pilotPDF;
+let copilotPDF;
+let airemptmassPDF;
+let airemptmomentPDF;
+let BaggagePDF;
+let FuelPDF;
+
 function prepocet_imperialne_na_metricke(){
   //Prázdna váha
   if (airEmptMassUnits.value === "Imperial"){
@@ -180,12 +203,14 @@ function prepocet_imperialne_na_metricke(){
       airemptmass.value = airemptmass.value*2.2046226218;
     }
     airEmptMass_metricke = parseFloat(airemptmass.value)*0.45359237;
+    airemptmassPDF = "lbs";
   }
   else if (airEmptMassUnits.value === "Metric"){
     if(airemptmass.value == 1168.449989554){
       airemptmass.value = 530;
     }
     airEmptMass_metricke = parseFloat(airemptmass.value)*1;
+    airemptmassPDF = "kg";
   }
   //moment prázdnej váhy
   if (airEmptMassMomentUnits.value === "Imperial"){
@@ -193,40 +218,50 @@ function prepocet_imperialne_na_metricke(){
       airemptmoment.value = airemptmoment.value*0.0088507457913;
     }
     airEmptMassMoment_metricke = parseFloat(airemptmoment.value)*112.98;
+    airemptmomentPDF = "in.lbs";
   }
   else if (airEmptMassMomentUnits.value === "Metric"){
     if(airemptmoment.value == 1421.3412666248669){
       airemptmoment.value = 160590;
     }
     airEmptMassMoment_metricke = parseFloat(airemptmoment.value)*1;
+    airemptmomentPDF = "kg.mm";
   }
   //pilot
   if (units_pilot.value === "Imperial"){
     pilot_metricke = parseFloat(pilot.value)*0.45359237;
+    pilotPDF = "lbs"
   }
   else if (units_pilot.value === "Metric"){
     pilot_metricke = parseFloat(pilot.value)*1;
+    pilotPDF = "kg"
   }
   //copilot
   if (units_copilot.value === "Imperial"){
     copilot_metricke = parseFloat(copilot.value)*0.45359237;
+    copilotPDF = "lbs"
   }
   else if (units_copilot.value === "Metric"){
     copilot_metricke = parseFloat(copilot.value)*1;
+    copilotPDF = "kg"
   }
   //Baggage
   if (units_Baggage.value === "Imperial"){
     Baggage_metricke = parseFloat(Baggage.value)*0.45359237;
+    BaggagePDF = "lbs" 
   }
   else if (units_Baggage.value === "Metric"){
     Baggage_metricke = parseFloat(Baggage.value)*1;
+    BaggagePDF = "kg"
   }
   //Fuel (nakoniec prepočítava z USgal do l a následne do kg)
   if (units_Fuel.value === "Imperial"){
     Fuel_metricke = parseFloat(Fuel.value)*3.785411784*0.72;
+    FuelPDF = "USgal"
   }
   else if (units_Fuel.value === "Metric"){
     Fuel_metricke = parseFloat(Fuel.value)*0.72;
+    FuelPDF = "l"
   }
 }
 
@@ -237,6 +272,11 @@ let pozicia_taziska_0fuel_hodnota;
 //Hodnoty pre upravenie letovej obálky pre imperiálne jednotky
 let setx;
 let sety;
+//Vypisovanie jednotiek do PDF
+let vaha_vypocetPDF;
+let vaha_vypocet_0fuelPDF;
+let pozicia_taziskaPDF;
+let pozicia_taziska_0fuelPDF;
 
 function prepocet_metricke_na_imperialne(){
   //Výpočet váhy TO
@@ -251,7 +291,7 @@ function prepocet_metricke_na_imperialne(){
     setx = airemptmass.value*2.2046226218;
     sety = 1609
     }
-
+    vaha_vypocetPDF = "lbs";
   }
   else if (units_vaha_vypocet.value === "Metric"){
     vypocet_vahy_hodnota = vypocet_vahy_lietadla_funkcia().toFixed(2);
@@ -264,28 +304,34 @@ function prepocet_metricke_na_imperialne(){
       setx = airemptmass.value;
       sety = 730
       }  
-
+      vaha_vypocetPDF = "kg";
   }
   //Výpočet váhy 0fuel
   if (units_vaha_vypocet_0fuel.value === "Imperial"){
     vypocet_vahy_0fuel_hodnota = (vypocet_vahy_lietadla_0fuel_funkcia()*2.2046226218).toFixed(2);
+    vaha_vypocet_0fuelPDF = "lbs";
   }
   else if (units_vaha_vypocet_0fuel.value === "Metric"){
     vypocet_vahy_0fuel_hodnota = vypocet_vahy_lietadla_0fuel_funkcia().toFixed(2);
+    vaha_vypocet_0fuelPDF = "kg";
   }
   //Pozícia Ťažiska na SAT
   if (units_pozicia_taziska.value === "Imperial"){
     pozicia_taziska_hodnota = (vypocet_pozicie_taziska_funkcia()*0.0393701).toFixed(2);
+    pozicia_taziskaPDF = "in";
   }
   else if (units_pozicia_taziska.value === "Metric"){
     pozicia_taziska_hodnota = vypocet_pozicie_taziska_funkcia().toFixed(2);
+    pozicia_taziskaPDF = "mm"
   }
   //Pozícia Ťažiska na SAT 0fuel
   if (units_pozicia_taziska_0fuel.value === "Imperial"){
     pozicia_taziska_0fuel_hodnota = (vypocet_pozicie_taziska_0fuel_funkcia()*0.0393701).toFixed(2);
+    pozicia_taziska_0fuelPDF = "in"
   }
   else if (units_pozicia_taziska_0fuel.value === "Metric"){
     pozicia_taziska_0fuel_hodnota = vypocet_pozicie_taziska_0fuel_funkcia().toFixed(2);
+    pozicia_taziska_0fuelPDF = "mm"
   }
 }
 
@@ -455,7 +501,7 @@ function limity(){
     pilot.style.borderColor = "red";
     copilot.style.backgroundColor = "red";
     copilot.style.borderColor = "red";
-  } else if (parseFloat(piloti_dokopy_funkcia()) < min_pilot_weight_lbs && units_pilot.value === "Imperial") {
+  } else if (parseFloat(piloti_dokopy_funkcia()) < min_pilot_weight_kg && units_pilot.value === "Imperial") {
     pilot.style.backgroundColor = "red";
     pilot.style.borderColor = "red";
     copilot.style.backgroundColor = "red";
@@ -554,3 +600,99 @@ function limity(){
   }
 }
 
+
+  function exportDoPDF() {
+    const { jsPDF } = window.jspdf;
+    html2canvas(document.querySelector("#letovaObalka")).then((canvas) => {
+      const imgData = canvas.toDataURL("image/png");
+      const doc = new jsPDF({
+        orientation: "portrait",
+        unit: "mm",
+        format: [210, 297], // A4 page size
+      });
+  
+      const scaleFactor = doc.internal.pageSize.width / (canvas.width * 2.5);
+      //Letová obálka
+      doc.addImage(
+        imgData,
+        "PNG",
+        20, //os x
+        20 * scaleFactor + 120, //os y
+        canvas.width * scaleFactor, //width
+        canvas.height * scaleFactor //height
+      );
+      //Tabulka 1
+      var headers = [['Inputs', "Value", "Units"]];
+      var data = [
+        [' Aircraft Empty Mass: ', airemptmass.value, airemptmassPDF],
+        [' Aircraft Empty Mass Moment: ', airemptmoment.value, airemptmomentPDF],
+        [' Pilot: ', pilot.value, pilotPDF],
+        [' Copilot:  ', copilot.value, copilotPDF],
+        [' Baggage:  ', Baggage.value, BaggagePDF],
+        [' Fuel:  ', Fuel.value, FuelPDF],
+      ];
+  
+      //Výpočet veľkosti tabuliek
+      const maxTableWidth = doc.internal.pageSize.width / 2 - 20
+      const table1X = 20;
+      const table1Y = 50;
+      doc.autoTable({
+        head: headers,
+        body: data,
+        tableWidth: maxTableWidth,
+        startY: table1Y,
+        margin: { left: table1X },
+      });
+      //Tabulka 2
+      var headers2 = [['Outputs', "Value", "Units"]];
+      var data2 = [
+        [' TO Mass:', vaha_vypocet.value, vaha_vypocetPDF],
+        [' 0 Fuel Mass: ', vaha_vypocet_0fuel.value, vaha_vypocet_0fuelPDF],
+        [' GOG TO: ', pozicia_taziska.value, pozicia_taziskaPDF],
+        [' 0 Fuel COG: ', pozicia_taziska_0fuel.value, pozicia_taziska_0fuelPDF],
+        [' COG TO: ', pozicia_taziska_SAT.value, "%"],
+        [' 0 Fuel COG: ', pozicia_taziska_SAT_0fuel.value, "%"],
+      ];
+      const table2X = doc.internal.pageSize.width / 2 + 2.5;
+      const table2Y = 50;
+        doc.autoTable({
+        head: headers2,
+        body: data2,
+        tableWidth: maxTableWidth,
+        startY: table2Y,
+        margin: { left: table2X },
+      });
+
+      //Tabulka 3
+      var data3 = [
+        ['Registration: ', regNumberValue],
+        ['PIC Name: ', namePICValue],
+        ['Date: ', dateValue],
+        ['Signature:', ""],
+        ];
+        doc.autoTable({
+        body: data3,
+        tableWidth: maxTableWidth,
+        startY: 125,
+        margin: { left: table2X },
+      });
+      doc.setDrawColor(0, 0, 0);
+      doc.line(130, 160, 190, 160);
+  
+      doc.setFontSize(18);
+      doc.setFont("Helvetica", "bold");
+      doc.text("Mass & Balance DA-20 Katana", 
+      doc.internal.pageSize.width / 2, 25, { align: "center" }); // Update the y coordinate to 25
+      doc.setFontSize(9);
+      doc.setFont("Helvetica", "bold");    
+      doc.text("mabap.netlify.app", doc.internal.pageSize.width / 2, 35, { align: "center" }); // Update the y coordinate to 35
+      doc.setFontSize(6);
+      doc.setFont("Helvetica");
+      doc.setTextColor("gray");
+      doc.text("Matúš Ištók", doc.internal.pageSize.width / 2, 280, { align: "center" }); // Update the y coordinate to 35
+      doc.text("Faculty of Aeronautics, Department of Flight Training, TUKE", doc.internal.pageSize.width / 2, 285, { align: "center" }); // Update the y coordinate to 35
+      doc.text("Košice 2023", doc.internal.pageSize.width / 2, 290, { align: "center" }); // Update the y coordinate to 35
+    //Uloženie PDF
+    doc.save("DA-20_MaBaP_"+date.value.toString()+".pdf");
+  });
+}

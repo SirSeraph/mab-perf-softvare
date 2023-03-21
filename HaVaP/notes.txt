@@ -5,3 +5,21 @@ Každá hodnota bude v pozadí prekonvertovávaná na imperiálne jednotky a na 
 
 Knižnica pre graf envelope:
 https://www.chartjs.org/docs/latest/samples/other-charts/scatter-multi-axis.html
+
+1. Možnosti simulácie a verifikovania zostaveného plánu výpočtu.
+Nakoľko je diamondom dodávaná excelová tabulka ku lietadlu, môžeme využiť
+túto tabuľku na verifikovanie údajov či sú výpočty správne. Môžeme vytvoriť aj podstránku kde 
+budú takisto jednotlivé lietadlá s presetovanými údajmi o prázdnej váhe a momente podľa volačky
+u seagle air a to môže byť takisto použité ako simulácia.
+
+2. Vytvorenie softvéru pre matematický výpočet paliva, hmotnosti a vyváženia. 
+To je prakticky funkcia celej kalkulačky
+
+3. Vykonanie verifikačného vzorového výpočtu za pomoci vytvoreného softvéru.
+To je vlastne jednotka -> zadáme nejaké presety seagle air lietadiel s presetovanými
+hodnotami ako sa lieta bežne
+
+
+Čo treba implementovať:
+pokiaľ je výsledná hodnota TO mass v imp, zoberie do tabulky hodnotu prevedenú na imperiálne hodnoty
+aby sme nemali jednu hodnotu v imperálnych a druhú v metrických

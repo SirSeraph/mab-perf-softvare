@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MaBaP</title>
     <link rel="stylesheet" href="./CSS/header.css" />
     <link rel="stylesheet" href="./CSS/style.css" />
@@ -11,6 +11,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.21/jspdf.plugin.autotable.min.js"></script>
   </head>
 
   <body>
@@ -260,9 +262,9 @@
         %
       </div>
       <!--Podtabulka 1. úrovne s letovou obálkou a nadpisom-->
-      <div class="envelope">
+      <div class="envelope" >
         <div class="nadpisEnvelope">Mass & Balance Envelope</div>
-        <div class="resposiveTable">
+        <div class="resposiveTable" id="letovaObalka">
           <canvas id="myChart"></canvas>
         </div>
       </div>
@@ -272,23 +274,16 @@
     <div class="aditionalContainer">
       <div class="item_date">
         <label for="Date_id">Date: </label>
-        <input id="Date_id" type="date" />
+        <input id="Date_id" type="date" onchange="updateResults()"/>
       </div>
       <div class="item_Callsign">
         <label for="Reg_number_id">Registration number: </label>
-        <input id="Reg_number_id" type="text" />
+        <input id="Reg_number_id" type="text" onchange="updateResults()"/>
       </div>
       <div class="item_PIC">
         <label for="Name_PIC_id">PIC Name: </label>
-        <input id="Name_PIC_id" type="text" />
+        <input id="Name_PIC_id" type="text" onchange="updateResults()"/>
       </div>
-
-      <!--Momentálne zbytočný Button-->
-      <!--
-    <div class="item_Button">
-    <button id="button" onclick="exportDoPDF()">Export PDF</button>
-    </div>
-    -->
 
       <div class="item_unitsSelectContainer">
         <label for="units_id">Units preset: </label>
@@ -304,6 +299,10 @@
       </div>
     </div>
 
+    <div class="item_Button">
+      <button id="button" onclick="exportDoPDF()">Export to PDF</button>
+      </div>
+  
     <!--Pätka-->
     <footer>
       <p>
