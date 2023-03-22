@@ -617,7 +617,16 @@ function limity(){
         format: [210, 297], // A4 page size
       });
   
-      const scaleFactor = doc.internal.pageSize.width / (canvas.width * 3);
+      let scaleFactor = 1;
+      const screenWidth = window.innerWidth;
+      if (screenWidth <= 768) { // mobile devices
+        scaleFactor = doc.internal.pageSize.width / (canvas.width * 3);
+      } else if (screenWidth <= 1024) { // tablets
+        scaleFactor = doc.internal.pageSize.width / (canvas.width * 2.5);
+      } else { // desktops
+        scaleFactor = doc.internal.pageSize.width / (canvas.width * 2.5);
+      }
+
       //Letová obálka
       doc.addImage(
         imgData,
