@@ -705,7 +705,7 @@ function limity(){
 
 //Alert message
 function showMessage() {
-  alert("USE AT YOUR OWN RISK!\n\nThe calculations are tested and correct but the pilot is solely responsible for accurate weight and balance calculation of his aircraft.");
+  alert("USE AT YOUR OWN RISK!\n\nThe calculations are tested and seem to be correct, but the pilot is solely responsible for accurate weight and balance calculation of his aircraft.");
 }
 var yourImage = document.getElementById("alert_id");
 yourImage.addEventListener("click", showMessage);
