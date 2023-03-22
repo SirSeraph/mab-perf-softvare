@@ -617,7 +617,7 @@ function limity(){
         format: [210, 297], // A4 page size
       });
   
-      const scaleFactor = doc.internal.pageSize.width / (canvas.width * 2.5);
+      const scaleFactor = doc.internal.pageSize.width / (canvas.width * 3);
       //Letová obálka
       doc.addImage(
         imgData,
