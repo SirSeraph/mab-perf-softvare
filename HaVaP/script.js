@@ -632,7 +632,7 @@ function limity(){
         imgData,
         "PNG",
         20, //os x
-        20 * scaleFactor + 120, //os y
+        20 * scaleFactor + 116, //os y
         canvas.width * scaleFactor, //width
         canvas.height * scaleFactor //height
       );
