@@ -702,3 +702,10 @@ function limity(){
     doc.save("DA-20_MaBaP_"+date.value.toString()+".pdf");
   });
 }
+
+//Alert message
+function showMessage() {
+  alert("USE AT YOUR OWN RISK!\n\nThe pilot is solely responsible for accurate weight and balance calculation of his aircraft.");
+}
+var yourImage = document.getElementById("alert_id");
+yourImage.addEventListener("click", showMessage);
