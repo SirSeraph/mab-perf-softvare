@@ -531,7 +531,7 @@ function limity(){
     Baggage.style.borderColor = "white";
   }
 
-  if (Fuel_metricke > max_fuel_kg) {
+  if (Fuel_metricke > max_fuel_kg || units_Fuel.value === "Metric" && parseFloat(Fuel.value) > 76 || units_Fuel.value === "Imperial" && parseFloat(Fuel.value) > 20.1) {
     Fuel.style.backgroundColor = "red";
     Fuel.style.borderColor = "red";
   } else if (Fuel_metricke < min_fuel_kg){
