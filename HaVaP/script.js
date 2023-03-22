@@ -106,6 +106,12 @@ Baggage.addEventListener('input', updateChart);
 Fuel.addEventListener('input', updateChart);
 
 //Update prídavných informácií
+pilot.addEventListener('input', updateInfo);
+copilot.addEventListener('input', updateInfo);
+airemptmass.addEventListener('input', updateInfo);
+airemptmoment.addEventListener('input', updateInfo);
+Baggage.addEventListener('input', updateInfo);
+Fuel.addEventListener('input', updateInfo);
 Name_PIC.addEventListener('input', updateInfo);
 date.addEventListener('input', updateInfo);
 regNumber.addEventListener('input', updateInfo);
