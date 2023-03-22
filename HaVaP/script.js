@@ -624,12 +624,12 @@ function limity(){
       //Tabulka 1
       var headers = [['Inputs', "Value", "Units"]];
       var data = [
-        [' Aircraft Empty Mass: ', airemptmass.value, airemptmassPDF],
-        [' Aircraft Empty Mass Moment: ', airemptmoment.value, airemptmomentPDF],
-        [' Pilot: ', pilot.value, pilotPDF],
-        [' Copilot:  ', copilot.value, copilotPDF],
-        [' Baggage:  ', Baggage.value, BaggagePDF],
-        [' Fuel:  ', Fuel.value, FuelPDF],
+        ['Aircraft Empty Mass: ', airemptmass.value, airemptmassPDF],
+        ['Aircraft Empty Mass Moment: ', airemptmoment.value, airemptmomentPDF],
+        ['Pilot: ', pilot.value, pilotPDF],
+        ['Copilot:  ', copilot.value, copilotPDF],
+        ['Baggage:  ', Baggage.value, BaggagePDF],
+        ['Fuel:  ', Fuel.value, FuelPDF],
       ];
   
       //Výpočet veľkosti tabuliek
@@ -646,12 +646,12 @@ function limity(){
       //Tabulka 2
       var headers2 = [['Outputs', "Value", "Units"]];
       var data2 = [
-        [' TO Mass:', vaha_vypocet.value, vaha_vypocetPDF],
-        [' 0 Fuel Mass: ', vaha_vypocet_0fuel.value, vaha_vypocet_0fuelPDF],
-        [' GOG TO: ', pozicia_taziska.value, pozicia_taziskaPDF],
-        [' 0 Fuel COG: ', pozicia_taziska_0fuel.value, pozicia_taziska_0fuelPDF],
-        [' COG TO: ', pozicia_taziska_SAT.value, "%"],
-        [' 0 Fuel COG: ', pozicia_taziska_SAT_0fuel.value, "%"],
+        ['TO Mass:', vaha_vypocet.value, vaha_vypocetPDF],
+        ['0 Fuel Mass: ', vaha_vypocet_0fuel.value, vaha_vypocet_0fuelPDF],
+        ['GOG TO: ', pozicia_taziska.value, pozicia_taziskaPDF],
+        ['0 Fuel COG: ', pozicia_taziska_0fuel.value, pozicia_taziska_0fuelPDF],
+        ['COG TO: ', pozicia_taziska_SAT.value, "%"],
+        ['0 Fuel COG: ', pozicia_taziska_SAT_0fuel.value, "%"],
       ];
       const table2X = doc.internal.pageSize.width / 2 + 2.5;
       const table2Y = 50;
