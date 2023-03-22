@@ -609,32 +609,25 @@ function limity(){
 
   function exportDoPDF() {
     const { jsPDF } = window.jspdf;
-    html2canvas(document.querySelector("#letovaObalka")).then((canvas) => {
-      const imgData = canvas.toDataURL("image/png");
+    const chartDataUrl = chart.toBase64Image();
       const doc = new jsPDF({
         orientation: "portrait",
         unit: "mm",
         format: [210, 297], // A4 page size
       });
-  
-      let scaleFactor = 1;
-      const screenWidth = window.innerWidth;
-      if (screenWidth <= 768) { // mobile devices
-        scaleFactor = doc.internal.pageSize.width / (canvas.width * 3);
-      } else if (screenWidth <= 1024) { // tablets
-        scaleFactor = doc.internal.pageSize.width / (canvas.width * 2.5);
-      } else { // desktops
-        scaleFactor = doc.internal.pageSize.width / (canvas.width * 2.5);
-      }
-
-      //Letová obálka
+      const aspectRatio = chart.width / chart.height;
+      const maxChartWidth = doc.internal.pageSize.width - 40; // 20mm margin on each side
+      const chartWidth = Math.min(chart.width, maxChartWidth) / 2;
+      const chartHeight = chartWidth / aspectRatio ;
+      const scaleFactor = chartWidth / chart.width;
+      
       doc.addImage(
-        imgData,
+        chartDataUrl,
         "PNG",
-        20, //os x
-        20 * scaleFactor + 116, //os y
-        canvas.width * scaleFactor, //width
-        canvas.height * scaleFactor //height
+        20, // x position
+        118, // y position
+        chartWidth,
+        chartHeight
       );
       //Tabulka 1
       var headers = [['Inputs', "Value", "Units"]];
@@ -728,8 +721,8 @@ function limity(){
       doc.text("Košice 2023", doc.internal.pageSize.width / 2, 290, { align: "center" }); // Update the y coordinate to 35
     //Uloženie PDF
     doc.save("DA-20_MaBaP_"+date.value.toString()+".pdf");
-  });
-}
+  }
+
 
 //Alert message
 function showMessage() {
