@@ -426,7 +426,7 @@ function updateChart() {
         {x: dot2_y, y: dot2_x}
       ];
       chart.update();
-  }, 1500);
+  }, 1000);
 }
 
 updateChart();
