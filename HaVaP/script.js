@@ -684,7 +684,26 @@ function limity(){
       });
       doc.setDrawColor(0, 0, 0);
       doc.line(130, 160, 190, 160);
-  
+      //Tabulka 4
+      var data4 = [
+        ['Time of flight:', ""],
+        ];
+        doc.autoTable({
+        body: data4,
+        tableWidth: maxTableWidth - 20,
+        startY: 190,
+        margin: { left: 20 },
+      });
+      var data4 = [
+        ['Flight route:', ""],
+        ];
+        doc.autoTable({
+        body: data4,
+        tableWidth: maxTableWidth +20,
+        startY: 190,
+        margin: { left: table2X - 20 },
+      });
+
       doc.setFontSize(18);
       doc.setFont("Helvetica", "bold");
       doc.text("Mass & Balance DA-20 Katana", 
