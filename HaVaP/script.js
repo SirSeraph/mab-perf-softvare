@@ -652,7 +652,7 @@ function limity(){
         margin: { left: table1X },
       });
       //Tabulka 2
-      var headers2 = [['Outputs', "Value", "Units"]];
+      var headers2 = [['Results', "Value", "Units"]];
       var data2 = [
         ['TO Mass:', vaha_vypocet.value, vaha_vypocetPDF],
         ['0 Fuel Mass: ', vaha_vypocet_0fuel.value, vaha_vypocet_0fuelPDF],
