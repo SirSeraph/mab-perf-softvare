@@ -709,16 +709,16 @@ function limity(){
       doc.setFontSize(18);
       doc.setFont("Helvetica", "bold");
       doc.text("Mass & Balance DA-20 Katana", 
-      doc.internal.pageSize.width / 2, 25, { align: "center" }); // Update the y coordinate to 25
+      doc.internal.pageSize.width / 2, 25, { align: "center" }); // Posunieme os y do 25
       doc.setFontSize(9);
       doc.setFont("Helvetica", "bold");    
-      doc.text("mabap.netlify.app", doc.internal.pageSize.width / 2, 35, { align: "center" }); // Update the y coordinate to 35
+      doc.text("mabap.netlify.app", doc.internal.pageSize.width / 2, 35, { align: "center" }); // Posunieme os y do 35
       doc.setFontSize(6);
       doc.setFont("Helvetica");
       doc.setTextColor("gray");
-      doc.text("Matúš Ištók", doc.internal.pageSize.width / 2, 280, { align: "center" }); // Update the y coordinate to 35
-      doc.text("Faculty of Aeronautics, Department of Flight Training, TUKE", doc.internal.pageSize.width / 2, 285, { align: "center" }); // Update the y coordinate to 35
-      doc.text("Košice 2023", doc.internal.pageSize.width / 2, 290, { align: "center" }); // Update the y coordinate to 35
+      doc.text("Matúš Ištók", doc.internal.pageSize.width / 2, 280, { align: "center" }); 
+      doc.text("Faculty of Aeronautics, Department of Flight Training, TUKE", doc.internal.pageSize.width / 2, 285, { align: "center" }); 
+      doc.text("Košice 2023", doc.internal.pageSize.width / 2, 290, { align: "center" }); 
     //Uloženie PDF
     doc.save("DA-20_MaBaP_"+date.value.toString()+".pdf");
   }
