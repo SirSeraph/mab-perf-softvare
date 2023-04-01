@@ -243,7 +243,7 @@ body {
     cursor: pointer;
   }
 
-  .item_unitsSelectContainer select {
+  .aditionalContainer select {
     height: 40px;
     width: 100px;
     margin-left: 1%;
@@ -358,7 +358,8 @@ body {
       margin: 0 auto;
     }
     .item_unitsSelectContainer select {
-      width: 80%;
+      width: 82%;
+      text-align: center;
     }
     label {
       margin: 5px 0;

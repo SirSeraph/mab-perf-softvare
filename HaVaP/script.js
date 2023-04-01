@@ -138,7 +138,7 @@ function updateResults() {
     pozicia_taziska_0fuel.value = pozicia_taziska_0fuel_hodnota;
     pozicia_taziska_SAT.value = vypocet_pozicie_taziska_SAT_funkcia().toFixed(2);
     pozicia_taziska_SAT_0fuel.value = vypocet_pozicie_taziska_SAT_0fuel_funkcia().toFixed(2);
-}
+  }
 
 //Event listener pre zmenu vyberJednotiek
 units.addEventListener('change', function() {
@@ -730,3 +730,4 @@ function showMessage() {
 }
 var yourImage = document.getElementById("alert_id");
 yourImage.addEventListener("click", showMessage);
+
