@@ -181,6 +181,7 @@ body {
   .unitChoiceInput select {
     width: 66px;
     height: 35px;
+    cursor: pointer;
   }
   .unitChoiceOutput select {
     width: 66px;
