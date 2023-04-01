@@ -1,7 +1,7 @@
 body {
     background: linear-gradient(90deg, #FFFFFF -20%, rgba(86,175,200,1) 100%);;
     color: white;
-    font-family: "roboto";
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin: 0;
   }
   /*Grid na rovrhnutie celej stránky*/

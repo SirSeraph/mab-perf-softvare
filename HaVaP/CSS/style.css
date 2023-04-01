@@ -1,7 +1,7 @@
 body {
     background-color: rgb(19, 36, 83);
     color: white;
-    font-family: "roboto";
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin: 0;
   }
   /*Grid na rovrhnutie celej stránky*/
