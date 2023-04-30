@@ -59,6 +59,7 @@ const limita_polohy_taziska_vzadu = 390;
 
 //Current datum
 window.onload =(event) => {
+  console.log("Onload fired")
   var date1 = new Date();
   var day = date1.getDate();
   var month = date1.getMonth() + 1;
@@ -66,7 +67,7 @@ window.onload =(event) => {
   if (month < 10) month = "0" + month;
   if (day < 10) day = "0" + day;
   var today = year + "-" + month + "-" + day;
-  date.value= today;
+  date.value = today;
 };
 
 //Event listener pre zmenu hodnôt v input boxoch
@@ -139,6 +140,11 @@ function updateResults() {
     pozicia_taziska_0fuel.value = pozicia_taziska_0fuel_hodnota;
     pozicia_taziska_SAT.value = vypocet_pozicie_taziska_SAT_funkcia().toFixed(2);
     pozicia_taziska_SAT_0fuel.value = vypocet_pozicie_taziska_SAT_0fuel_funkcia().toFixed(2);
+
+    //Performance
+    flapsUP.value = 41;
+    flapsTO.value = 39;
+    flapsLDG.value = 37;  
   }
 
 //Event listener pre zmenu vyberJednotiek
@@ -819,11 +825,6 @@ let cruisingSpeedUnits = document.getElementById("cruisingSpeed_id");
 let flightTime = document.getElementById("flightTime");
 let flightTime2 = document.getElementById("flightTime2");
 
-window.onload =(event) => {
-  flapsUP.value = 41;
-  flapsTO.value = 39;
-  flapsLDG.value = 37;
-};
 
 //Funkcia automatického nastavenia hodnôt pre ďalšie výpočty
 let temperature = 0;
