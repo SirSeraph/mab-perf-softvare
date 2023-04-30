@@ -59,7 +59,6 @@ const limita_polohy_taziska_vzadu = 390;
 
 //Current datum
 window.onload =(event) => {
-  console.log("Onload fired")
   var date1 = new Date();
   var day = date1.getDate();
   var month = date1.getMonth() + 1;
@@ -68,6 +67,12 @@ window.onload =(event) => {
   if (day < 10) day = "0" + day;
   var today = year + "-" + month + "-" + day;
   date.value = today;
+
+      //Performance
+      flapsUP.value = 41;
+      flapsTO.value = 39;
+      flapsLDG.value = 37;  
+  
 };
 
 //Event listener pre zmenu hodnôt v input boxoch
@@ -141,10 +146,6 @@ function updateResults() {
     pozicia_taziska_SAT.value = vypocet_pozicie_taziska_SAT_funkcia().toFixed(2);
     pozicia_taziska_SAT_0fuel.value = vypocet_pozicie_taziska_SAT_0fuel_funkcia().toFixed(2);
 
-    //Performance
-    flapsUP.value = 41;
-    flapsTO.value = 39;
-    flapsLDG.value = 37;  
   }
 
 //Event listener pre zmenu vyberJednotiek
@@ -783,6 +784,7 @@ let airTemperature2 = document.getElementById("airTemperature2");
 let airTemperature2Units = document.getElementById("airTemperature2_id");
 let airTemperature3 = document.getElementById("airTemperature3");
 let airTemperature3Units = document.getElementById("airTemperature3_id");
+let additionalInfo = document.getElementById("additionalInfo");
 
 let pressureAltitude = document.getElementById("pressureAltitude");
 let pressureAltitude1 = document.getElementById("pressureAltitude1");
@@ -835,6 +837,10 @@ let obstacle = 0;
 let altitude2 = 0;
 let temperature3 = 0;
 
+let temperaturePrvotne = 0;
+let obstaclePrvotne = 0;
+let weightPerfPrvotne = 0;
+
 function updateAccordingToTheFirst(){
   //Získavanie number hodnôt zadávaných
   let temperatureString = airTemperature1.value;
@@ -843,14 +849,14 @@ function updateAccordingToTheFirst(){
   let headwindString = headwindComponent.value;
   let obstacleString = obstacleHeight.value;
 
-  temperature = parseFloat(temperatureString);
+  temperaturePrvotne = parseFloat(temperatureString);
   altitude = parseFloat(altitudeString);
-  weightPerf = parseFloat(weightPerfString);
+  weightPerfPrvotne = parseFloat(weightPerfString);
   headwind = parseFloat(headwindString);
-  obstacle = parseFloat(obstacleString);
+  obstaclePrvotne = parseFloat(obstacleString);
   //Nastavenie according to the first
-  airTemperature2.value = temperature;
-  airTemperature3.value = temperature;
+  airTemperature2.value = temperaturePrvotne;
+  airTemperature3.value = temperaturePrvotne;
 
   pressureAltitude1.value = altitude;
   pressureAltitude2.value = altitude;
@@ -878,22 +884,81 @@ airemptmoment.addEventListener('input', updateAccordingToTheFirst);
 Baggage.addEventListener('input', updateAccordingToTheFirst);
 Fuel.addEventListener('input', updateAccordingToTheFirst);
 
-temperature_metricke = 0;
+let temperature2Prvotne = 0;
+let altitude1 = 0;
+let weightPerf2 = 0;
+let weightPerf2Prvotne = 0;
+let temperature2 = 0;
+let temperatureString3 = 0;
+let fuelPerf = 0;
+let fuelPerfPrvotne = 0;
 
-function VypoctyVykony(){
-//Premena jednotiek Take-off 1
 function VypoctyVykonyImperialneNaMetricke(){
+  //Temperature 1
   if (airTemperature1Units.value === "Metric"){
-    temperature_metricke = temperature;
+    temperature = temperaturePrvotne;
   }
-  else{
-    temperature_metricke = (temperature-32)*(5/9);
-    console.log(temperature_metricke);
+  else if (airTemperature1Units.value === "Imperial"){
+    temperature = (temperaturePrvotne-32)*(5/9);
+  }
+  //Obstacle
+  if (obstacleHeightUnits.value === "Metric"){
+    obstacle = obstaclePrvotne;
+  }
+  else if (obstacleHeightUnits.value === "Imperial"){
+    obstacle = obstaclePrvotne*0.3048;
+  }
+  //Weight 1
+  if (aircraftWeightUnits.value === "Metric"){
+    weightPerf = weightPerfPrvotne;
+  }
+  else if (aircraftWeightUnits.value === "Imperial"){
+    weightPerf = weightPerfPrvotne*0.45359237;
   }
 
+  let airTemperature2String = airTemperature2.value;
+  let pressureAltitude1String = pressureAltitude1.value;
+  let aircraftWeight1String = aircraftWeight1.value;
+  temperature2Prvotne = parseFloat(airTemperature2String);
+  altitude1 = parseFloat(pressureAltitude1String);
+  weightPerf2Prvotne = parseFloat(aircraftWeight1String);
+
+  //Temperature 2
+  if (airTemperature2Units.value === "Metric"){
+    temperature2 = temperature2Prvotne;
+  }
+  else if (airTemperature2Units.value === "Imperial"){
+    temperature2 = (temperature2Prvotne-32)*(5/9);
+  }
+  //Weight 2
+  if (aircraftWeight1Units.value === "Metric"){
+    weightPerf2 = weightPerf2Prvotne;
+  }
+  else if (aircraftWeight1Units.value === "Imperial"){
+    weightPerf2 = weightPerf2Prvotne*0.45359237;
+  }
+
+  //Temperature 3
+  temperatureString3 = airTemperature3.value;
+  let temperature3Prvotne = parseFloat(temperatureString3);
+  if (airTemperature3Units.value === "Metric"){
+    temperature3 = temperature3Prvotne;
+  }
+  else if (airTemperature3Units.value === "Imperial"){
+    temperature3 = (temperature3Prvotne-32)*(5/9);
+  }
+
+  let fuelPerformanceString = fuelPerformance.value;
+  fuelPerfPrvotne = parseFloat(fuelPerformanceString);
+  if (fuelPerformanceUnits.value === "Metric"){
+    fuelPerf = fuelPerfPrvotne;
+  }
+  else if (fuelPerformanceUnits.value === "Imperial"){
+    fuelPerf = fuelPerfPrvotne*3.785411784;
+  }
 }
 
-VypoctyVykonyImperialneNaMetricke();
+function VypoctyVykony(){
 //Výpočty Take-off
 let v1 = 0;
 let v2 = 0;
@@ -1007,40 +1072,50 @@ else if (v3 >650 && v3 <=750){
   v4 = 18*obstacle+ (700 + (v3-700));
 }
 
-console.log("v1: " + v1)
-console.log("v2: " + v2)
-console.log("v3: " + v3)
-console.log("v4: " + v4)
+let additionalInfoVar = 0;
 
-console.log("Take of distance: " + v3 + "Take off distance with OBH: " + v4);
-
-//Premena jednotiek Take-off 2
-function VypoctyVykonyMetrickeNaImperialne(){
-
-}
-VypoctyVykonyMetrickeNaImperialne()
+  if (additionalInfo.value === "Paved"){
+    additionalInfoVar = 1;
+  }
+  else if (additionalInfo.value === "Grass5"){
+    additionalInfoVar = 1.1;
+  }
+  else if (additionalInfo.value === "Grass5-10"){
+    additionalInfoVar = 1.15;
+  }
+  else if (additionalInfo.value === "Grass10"){
+    additionalInfoVar = 1.25;
+  }
+  else if (additionalInfo.value === "GrassWet"){
+    additionalInfoVar = 1.4;
+  }
 
 //Výpis výsledkov takeoff distance
-toRollDistance.value = (v3).toFixed(2);
-toRollDistanceClear.value = (v4 + obstacle).toFixed(2);
-
-//Premena jednotiek Climb-performance
+if (toRollDistanceUnits.value === "Metric"){
+  toRollDistance.value = ((v3)*additionalInfoVar).toFixed(2);
+}
+else if (toRollDistanceUnits.value === "Imperial"){
+  toRollDistance.value = (((v3)*3.2808)*additionalInfoVar).toFixed(2);
+}
+if (toRollDistanceClearUnits.value === "Metric"){
+  toRollDistanceClear.value = ((v4 + obstacle)*additionalInfoVar).toFixed(2);
+}
+else if (toRollDistanceClearUnits.value === "Imperial"){
+  toRollDistanceClear.value = (((v4 + obstacle)*3.2808)*additionalInfoVar).toFixed(2);
+}
 
 //Výpočty Climb-performance
-let airTemperature2String = airTemperature2.value;
-let pressureAltitude1String = pressureAltitude1.value;
-let aircraftWeight1String = aircraftWeight1.value;
-let temperature2 = parseFloat(airTemperature2String);
-let altitude1 = parseFloat(pressureAltitude1String);
-let weightPerf2 = parseFloat(aircraftWeight1String);
 
 let vypocetClimbPerformance1 = -3000 + altitude1 + 100 * temperature2;
 let vypocetClimbPerformance3 = (Math.pow(103/117, 1/80)** weightPerf2) * (10300 / ((103 / 117)** (73 / 8)));
 let vypocetClimbPerformance2 = (vypocetClimbPerformance3-vypocetClimbPerformance1)/17
 
-climbPerformance.value = parseFloat(vypocetClimbPerformance2).toFixed(2)
-
-//Premena jednotiek Stall-speed
+  if (climbPerformanceUnits.value==="Metric"){
+    climbPerformance.value = parseFloat(vypocetClimbPerformance2).toFixed(2)
+  }
+  else if(climbPerformanceUnits.value==="Imperial"){
+    climbPerformance.value = ((parseFloat(vypocetClimbPerformance2))*0.00508).toFixed(2)
+  }
 
 //Výpočty Stall-speed
 let bankAngleVypocetString = bankAngle.value;
@@ -1210,14 +1285,10 @@ else if (bankAngleVypocet===60){
     }
 };
 
-//Premena jednotiek Cruising-speed
-
 //Výpočty Cruising-speed
 
     let altitudeString2 = pressureAltitude2.value;
     altitude2 = parseFloat(altitudeString2);
-    let temperatureString3 = airTemperature3.value;
-    temperature3 = parseFloat(temperatureString3);
 
     let l1 = -96*temperature3-640;
     let l2 = -(2800/29)*temperature3+(30000/29);
@@ -1230,7 +1301,6 @@ else if (bankAngleVypocet===60){
     let l9 = -(2000/21)*temperature3+(266400/21);
     let l10 = -(1600/17)*temperature3+(244200/17);
     
-    // Initialize the variables to store the closest value and its name
     let closestL;
     let closestDiff = Infinity;
     let closestName;
@@ -1283,59 +1353,65 @@ else if (bankAngleVypocet===60){
     }
 
     let powerSettingValue = powerSetting.value;
-    
+    let cruisingSpeedVysledok = 0;
+
     if (powerSettingValue === "55"){
       if(k>10600){
-        cruisingSpeed.value= 100.5;
+        cruisingSpeedVysledok= 100.5;
       }
       else{
-      cruisingSpeed.value = ((17*k + 934900)/11100).toFixed(2)
+      cruisingSpeedVysledok = ((17*k + 934900)/11100).toFixed(2)
       }
     }
     else if(powerSettingValue === "60"){
       if(k>9500){
-        cruisingSpeed.value= 107;
+        cruisingSpeedVysledok= 107;
       }
       else{
-      cruisingSpeed.value = ((2*k + 101487.5)/1125).toFixed(2)
+      cruisingSpeedVysledok = ((2*k + 101487.5)/1125).toFixed(2)
       }
     }
     else if(powerSettingValue === "65"){
       if(k>8000){
-        cruisingSpeed.value= 112.5;
+        cruisingSpeedVysledok= 112.5;
       }
       else{
-      cruisingSpeed.value = ((16.5*k + 702200)/7400).toFixed(2)
+      cruisingSpeedVysledok = ((16.5*k + 702200)/7400).toFixed(2)
       }
     }
     else if(powerSettingValue === "75"){
       if(k>6100){
-        cruisingSpeed.value= 116;
+        cruisingSpeedVysledok= 116;
       }
       else{
-      cruisingSpeed.value = ((k + 44048)/432).toFixed(2)
+      cruisingSpeedVysledok = ((k + 44048)/432).toFixed(2)
       }
     }
     else if(powerSettingValue === "85"){
       if(k>3200){
-        cruisingSpeed.value= 118.5;
+        cruisingSpeedVysledok= 118.5;
       }
       else{
-      cruisingSpeed.value = ((k + 41262.5)/375).toFixed(2)
+      cruisingSpeedVysledok = ((k + 41262.5)/375).toFixed(2)
       }
     }
     else if(powerSettingValue === "95"){
       if(k>-600){
-        cruisingSpeed.value= 116.5;
+        cruisingSpeedVysledok= 116.5;
       }
       else{
-      cruisingSpeed.value = ((k + 42540)/360).toFixed(2)
+      cruisingSpeedVysledok = ((k + 42540)/360).toFixed(2)
       }
     }
-  //Flight time duration
-  let fuelPerformanceString = fuelPerformance.value;
-  let fuelPerf = parseFloat(fuelPerformanceString);
+    //Výpis výsledku
+    if (cruisingSpeedUnits.value === "Metric"){
+      cruisingSpeed.value = cruisingSpeedVysledok
+    }
+    else if (cruisingSpeedUnits.value === "Imperial"){
+      cruisingSpeed.value = (cruisingSpeedVysledok*1.852).toFixed(2)
+    }
   
+  //Flight time duration  
   let flightTimeVar = 0;
   if (powerSetting2.value==="55"){
    flightTimeVar = (3/37)*fuelPerf;
@@ -1369,7 +1445,23 @@ else if (bankAngleVypocet===60){
 
   flightTime.value = decimalHoursToTimeWithoutReserve(flightTimeVar);
   flightTime2.value = decimalHoursToTime(flightTimeVar);
+  
+  
 }
+
+pressureAltitude.addEventListener('input', VypoctyVykonyImperialneNaMetricke);
+airTemperature1.addEventListener('input', VypoctyVykonyImperialneNaMetricke);
+aircraftWeight.addEventListener('input', VypoctyVykonyImperialneNaMetricke);
+headwindComponent.addEventListener('input', VypoctyVykonyImperialneNaMetricke);
+obstacleHeight.addEventListener('input', VypoctyVykonyImperialneNaMetricke);
+bankAngle.addEventListener('input', VypoctyVykonyImperialneNaMetricke);
+airTemperature3.addEventListener('input', VypoctyVykonyImperialneNaMetricke);
+pressureAltitude2.addEventListener('input', VypoctyVykonyImperialneNaMetricke);
+airTemperature2.addEventListener('input', VypoctyVykonyImperialneNaMetricke);
+pressureAltitude1.addEventListener('input', VypoctyVykonyImperialneNaMetricke);
+aircraftWeight1.addEventListener('input', VypoctyVykonyImperialneNaMetricke);
+fuelPerformance.addEventListener('input', VypoctyVykonyImperialneNaMetricke);
+powerSetting2.addEventListener('input', VypoctyVykonyImperialneNaMetricke);
 
 pressureAltitude.addEventListener('input', VypoctyVykony);
 airTemperature1.addEventListener('input', VypoctyVykony);
@@ -1384,3 +1476,4 @@ pressureAltitude1.addEventListener('input', VypoctyVykony);
 aircraftWeight1.addEventListener('input', VypoctyVykony);
 fuelPerformance.addEventListener('input', VypoctyVykony);
 powerSetting2.addEventListener('input', VypoctyVykony);
+

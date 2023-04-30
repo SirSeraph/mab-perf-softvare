@@ -386,6 +386,10 @@ body {
   grid-column: 3;
   grid-row: 1;
   }
+
+#additionalInfo{
+  grid-column: span 2;
+}
 /*Uhol nábehu tabulka*/
 .DropdownNadpis2{
   font-size: 20px;

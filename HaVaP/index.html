@@ -279,7 +279,7 @@
     <div class="aditionalContainer">
       <div class="item_date">
         <label for="Date_id">Date: </label>
-        <input id="Date_id" type="date" onchange="updateResults()"/>
+        <input id="Date_id" id="date" name="date" type="date" onchange="updateResults()"/>
       </div>
       <div class="item_Callsign">
         <label for="Reg_number_id">Registration number: </label>
@@ -319,7 +319,7 @@
               <select
               name="unitChange"
               id="airTemperature1_id"
-              onchange=""
+              onchange="VypoctyVykonyImperialneNaMetricke(),VypoctyVykony()"
               >
               <option value="Metric">°C</option>
               <option value="Imperial">°F</option>
@@ -350,7 +350,7 @@
               <select
               name="unitChange"
               id="aircraftWeight_id"
-              onchange=""
+              onchange="VypoctyVykonyImperialneNaMetricke(),VypoctyVykony()"
               >
               <option value="Metric">kg</option>
               <option value="Imperial">lbs</option>
@@ -369,10 +369,21 @@
               <select
               name="unitChange"
               id="obstacleHeight_id"
-              onchange=""
+              onchange="VypoctyVykonyImperialneNaMetricke(),VypoctyVykony()"
               >
               <option value="Metric">m</option>
               <option value="Imperial">ft</option>
+              </select>
+              <label for="additionalInfo">Obstacle Height:</label>
+              <select
+              name="unitChangeNot"
+              id="additionalInfo"
+              onchange="VypoctyVykonyImperialneNaMetricke(),VypoctyVykony()">
+              <option value="Paved">Paved Runway</option>
+              <option value="Grass5">Grass to 5cm (2in)</option>
+              <option value="Grass5-10">Grass 5 to 10cm (2-4in)</option>
+              <option value="Grass10">Grass more than 10cm (4in)</option>
+              <option value="GrassWet">Wet grass more than 10cm (4in)</option>
               </select>
             </div>
             <div class="DropdownOutputs">
@@ -383,7 +394,7 @@
               name="unitChange"
               id="toRollDistance_id"
               class="select__1"
-              onchange=""
+              onchange="VypoctyVykonyImperialneNaMetricke(),VypoctyVykony()"
               >
               <option value="Metric">m</option>
               <option value="Imperial">ft</option>
@@ -394,7 +405,7 @@
               name="unitChange"
               id="toRollDistanceClear_id"
               class="select__2"
-              onchange=""
+              onchange="VypoctyVykonyImperialneNaMetricke(),VypoctyVykony()"
               >
               <option value="Metric">m</option>
               <option value="Imperial">ft</option>
@@ -421,7 +432,7 @@
               <select
               name="unitChange"
               id="airTemperature2_id"
-              onchange=""
+              onchange="VypoctyVykonyImperialneNaMetricke(),VypoctyVykony()"
               >
               <option value="Metric">°C</option>
               <option value="Imperial">°F</option>
@@ -431,7 +442,7 @@
               <select
               name="unitChange"
               id="aircraftWeight1_id"
-              onchange=""
+              onchange="VypoctyVykonyImperialneNaMetricke(),VypoctyVykony()"
               >
               <option value="Metric">kg</option>
               <option value="Imperial">lbs</option>
@@ -446,7 +457,7 @@
               <select
               name="unitChange"
               id="climbPerformance_id"
-              onchange=""
+              onchange="VypoctyVykonyImperialneNaMetricke(),VypoctyVykony()"
               >
               <option value="Metric">ft/min</option>
               <option value="Imperial">m/sec</option>
@@ -534,7 +545,7 @@
             <select
             name="unitChange"
             id="airTemperature3_id"
-            onchange=""
+            onchange="VypoctyVykonyImperialneNaMetricke(),VypoctyVykony()"
             >
             <option value="Metric">°C</option>
             <option value="Imperial">°F</option>
@@ -564,7 +575,7 @@
             <select
             name="unitChange"
             id="cruisingSpeed_id"
-            onchange=""
+            onchange="VypoctyVykonyImperialneNaMetricke(),VypoctyVykony()"
             >
             <option value="Metric">kts</option>
             <option value="Imperial">km/h</option>
@@ -580,7 +591,7 @@
             <select
             name="unitChange"
             id="fuelUnits_id"
-            onchange=""
+            onchange="VypoctyVykonyImperialneNaMetricke(),VypoctyVykony()"
             >
             <option value="Metric">l</option>
             <option value="Imperial">USgal</option>
