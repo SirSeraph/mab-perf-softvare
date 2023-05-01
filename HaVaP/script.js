@@ -73,6 +73,7 @@ window.onload =(event) => {
       flapsTO.value = 39;
       flapsLDG.value = 37;  
   
+      powerSetting2.value==="55";
 };
 
 //Event listener pre zmenu hodnôt v input boxoch
