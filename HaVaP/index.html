@@ -156,7 +156,7 @@
             id="Fuel_id"
             type="number"
             value="0"
-            onchange="prepocet_imperialne_na_metricke(), prepocet_metricke_na_imperialne(), updateResults(), VypoctyVykony()"
+            onchange="prepocet_imperialne_na_metricke(), prepocet_metricke_na_imperialne(), updateResults(), VypoctyVykonyImperialneNaMetricke(), VypoctyVykony()"
           />
         </div>
         <div class="unitChoiceInput">
@@ -187,7 +187,7 @@
             <select
               name="unitChange"
               id="units_vaha_vypocet_id"
-              onchange="prepocet_imperialne_na_metricke(), prepocet_metricke_na_imperialne(), updateResults()"
+              onchange="prepocet_imperialne_na_metricke(), prepocet_metricke_na_imperialne(), updateResults(), VypoctyVykonyImperialneNaMetricke(),VypoctyVykony()"
             >
               <option value="Metric">kg</option>
               <option value="Imperial">lbs</option>
