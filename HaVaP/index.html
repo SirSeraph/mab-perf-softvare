@@ -465,67 +465,6 @@
             </div>
           </div>
 
-        <!--Výpočet Stall Speeds-->
-          <div class="DropdownWindow stall">
-            <div class="Nadpis">Stall Speeds</div>
-            <div class="DropdownInputs2">
-              <div class="DropdownNadpis2">Inputs:</div>
-              <label for="bankAngle" class="label__bankAngle">Bank Angle:</label>
-              <select id="bankAngle" type="number" class="input__bankAngle">
-              <option value = "0">0</option>
-              <option value = "15">15</option>
-              <option value = "30">30</option>
-              <option value = "45">45</option>
-              <option value = "60">60</option>
-            </select>
-              <select
-              name="unitChangeNot"
-              id="bankAngle_id"
-              class="select__bankAngle"
-              onchange=""
-              >
-              <option value="Metric">°</option>
-              </select>              
-            </div>
-            <div class="DropdownOutputs">
-              <div class="DropdownNadpis">Outputs:</div>
-              <label for="flapsUP">Flaps UP:</label>
-              <input id="flapsUP" type="text" readonly>
-              <select
-              name="unitChange"
-              id="flapsUP_id"
-              onchange="VypoctyVykony()"
-              >
-              <option value="Metric">kts</option>
-              <option value="Imperial">mph</option>
-              <option value="Hybrid">km/h</option>
-              </select>
-              <label for="flapsTO">Flaps T/O:</label>
-              <input id="flapsTO" type="text" readonly>
-              <select
-              name="unitChange"
-              id="flapsTO_id"
-              onchange="VypoctyVykony()"
-              >
-              <option value="Metric">kts</option>
-              <option value="Imperial">mph</option>
-              <option value="Hybrid">km/h</option>
-              </select>
-              <label for="flapsLDG">Flaps LDG:</label>
-              <input id="flapsLDG" type="text" readonly>
-              <select
-              name="unitChange"
-              id="flapsLDG_id"
-              onchange="VypoctyVykony()"
-              >
-              <option value="Metric">kts</option>
-              <option value="Imperial">mph</option>
-              <option value="Hybrid">km/h</option>
-              </select>
-
-            </div>
-          </div>
-
         <!--Výpočet Cruising Speed-->
         <div class="DropdownWindow cruising">
           <div class="Nadpis">Cruising Speed</div>
@@ -638,12 +577,70 @@
 
           </div>
         </div>
+<!--Výpočet Stall Speeds-->
+<div class="DropdownWindow stall">
+  <div class="Nadpis">Stall Speeds</div>
+  <div class="DropdownInputs2">
+    <div class="DropdownNadpis2">Inputs:</div>
+    <label for="bankAngle" class="label__bankAngle">Bank Angle:</label>
+    <select id="bankAngle" type="number" class="input__bankAngle">
+    <option value = "0">0</option>
+    <option value = "15">15</option>
+    <option value = "30">30</option>
+    <option value = "45">45</option>
+    <option value = "60">60</option>
+  </select>
+    <select
+    name="unitChangeNot"
+    id="bankAngle_id"
+    class="select__bankAngle"
+    onchange=""
+    >
+    <option value="Metric">°</option>
+    </select>              
+  </div>
+  <div class="DropdownOutputs">
+    <div class="DropdownNadpis">Outputs:</div>
+    <label for="flapsUP">Flaps UP:</label>
+    <input id="flapsUP" type="text" readonly>
+    <select
+    name="unitChange"
+    id="flapsUP_id"
+    onchange="VypoctyVykony()"
+    >
+    <option value="Metric">kts</option>
+    <option value="Imperial">mph</option>
+    <option value="Hybrid">km/h</option>
+    </select>
+    <label for="flapsTO">Flaps T/O:</label>
+    <input id="flapsTO" type="text" readonly>
+    <select
+    name="unitChange"
+    id="flapsTO_id"
+    onchange="VypoctyVykony()"
+    >
+    <option value="Metric">kts</option>
+    <option value="Imperial">mph</option>
+    <option value="Hybrid">km/h</option>
+    </select>
+    <label for="flapsLDG">Flaps LDG:</label>
+    <input id="flapsLDG" type="text" readonly>
+    <select
+    name="unitChange"
+    id="flapsLDG_id"
+    onchange="VypoctyVykony()"
+    >
+    <option value="Metric">kts</option>
+    <option value="Imperial">mph</option>
+    <option value="Hybrid">km/h</option>
+    </select>
+
+  </div>
+</div>
 
 
 
 
-
-      </div>
       </div>
     </div>
 
