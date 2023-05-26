@@ -310,339 +310,347 @@
       <div id="dropdown-content">
 
         <!--Výpočet TO distance-->
-          <div class="DropdownWindow">
+          <div class="DropdownWindow take_off">
             <div class="Nadpis">Take-off Distance</div>
-            <div class="DropdownInputs take_off">
-              <div class="DropdownNadpis gridInput">Inputs:</div>
-              <label for="airTemperature1">Air Temperature:</label>
-              <input id="airTemperature1" type="number">
-              <select
-              name="unitChange"
-              id="airTemperature1_id"
-              onchange="VypoctyVykonyImperialneNaMetricke(),VypoctyVykony()"
-              >
-              <option value="Metric">°C</option>
-              <option value="Imperial">°F</option>
-              </select>
-              <label for="pressureAltitude">Pressure Altitude:</label>
-              <select id="pressureAltitude" type="number">
-                <option value = "0">0</option>
-                <option value = "1000">1000</option>
-                <option value = "2000">2000</option>
-                <option value = "3000">3000</option>
-                <option value = "4000">4000</option>
-                <option value = "5000">5000</option>
-                <option value = "6000">6000</option>
-                <option value = "7000">7000</option>
-                <option value = "8000">8000</option>
-                <option value = "9000">9000</option>
-                <option value = "10000">10000</option>
-              </select>
-              <select
-              name="unitChangeNot"
-              id="pressureAltitude_id"
-              onchange=""
-              >
-              <option value="Metric">ft</option>
-              </select>
-              <label for="aircraftWeight">Aircraft Weight:</label>
-              <input id="aircraftWeight" type="number">
-              <select
-              name="unitChange"
-              id="aircraftWeight_id"
-              onchange="VypoctyVykonyImperialneNaMetricke(),VypoctyVykony()"
-              >
-              <option value="Metric">kg</option>
-              <option value="Imperial">lbs</option>
-              </select>
-              <label for="headwindComponent">Headwind Component:</label>
-              <input id="headwindComponent" type="number">
-              <select
-              name="unitChangeNot"
-              id="headwindComponent_id"
-              onchange=""
-              >
-              <option value="Metric">kts</option>
-              </select>
-              <label for="obstacleHeight">Obstacle Height:</label>
-              <input id="obstacleHeight" type="number">
-              <select
-              name="unitChange"
-              id="obstacleHeight_id"
-              onchange="VypoctyVykonyImperialneNaMetricke(),VypoctyVykony()"
-              >
-              <option value="Metric">m</option>
-              <option value="Imperial">ft</option>
-              </select>
-              <label for="additionalInfo">Runway Condition:</label>
-              <select
-              name="unitChangeNot"
-              id="additionalInfo"
-              onchange="VypoctyVykonyImperialneNaMetricke(),VypoctyVykony()">
-              <option value="Paved">Paved Runway</option>
-              <option value="Grass5">Grass to 5cm (2in)</option>
-              <option value="Grass5-10">Grass 5 to 10cm (2-4in)</option>
-              <option value="Grass10">Grass more than 10cm (4in)</option>
-              <option value="GrassWet">Wet grass more than 10cm (4in)</option>
-              </select>
-            </div>
-            <div class="DropdownOutputs">
-              <div class="DropdownNadpis1">Outputs:</div>
-              <label for="toRollDistance" class="label__1">TO roll distance:</label>
-              <input id="toRollDistance" type="text" class="input__1" readonly>
-              <select
-              name="unitChange"
-              id="toRollDistance_id"
-              class="select__1"
-              onchange="VypoctyVykonyImperialneNaMetricke(),VypoctyVykony()"
-              >
-              <option value="Metric">m</option>
-              <option value="Imperial">ft</option>
-              </select>
-              <label for="toRollDistanceClear" class="label__2">Distance to clear:</label>
-              <input id="toRollDistanceClear" type="text" class="input__2" readonly>
-              <select
-              name="unitChange"
-              id="toRollDistanceClear_id"
-              class="select__2"
-              onchange="VypoctyVykonyImperialneNaMetricke(),VypoctyVykony()"
-              >
-              <option value="Metric">m</option>
-              <option value="Imperial">ft</option>
-              </select>
+            <div class="container">
+              <div class="DropdownInputs">
+                <div class="DropdownNadpis gridInput">Inputs:</div>
+                <label for="airTemperature1">Air Temperature:</label>
+                <input id="airTemperature1" type="number">
+                <select
+                name="unitChange"
+                id="airTemperature1_id"
+                onchange="VypoctyVykonyImperialneNaMetricke(),VypoctyVykony()"
+                >
+                <option value="Metric">°C</option>
+                <option value="Imperial">°F</option>
+                </select>
+                <label for="pressureAltitude">Pressure Altitude:</label>
+                <select id="pressureAltitude" type="number">
+                  <option value = "0">0</option>
+                  <option value = "1000">1000</option>
+                  <option value = "2000">2000</option>
+                  <option value = "3000">3000</option>
+                  <option value = "4000">4000</option>
+                  <option value = "5000">5000</option>
+                  <option value = "6000">6000</option>
+                  <option value = "7000">7000</option>
+                  <option value = "8000">8000</option>
+                  <option value = "9000">9000</option>
+                  <option value = "10000">10000</option>
+                </select>
+                <select
+                name="unitChangeNot"
+                id="pressureAltitude_id"
+                onchange=""
+                >
+                <option value="Metric">ft</option>
+                </select>
+                <label for="aircraftWeight">Aircraft Weight:</label>
+                <input id="aircraftWeight" type="number">
+                <select
+                name="unitChange"
+                id="aircraftWeight_id"
+                onchange="VypoctyVykonyImperialneNaMetricke(),VypoctyVykony()"
+                >
+                <option value="Metric">kg</option>
+                <option value="Imperial">lbs</option>
+                </select>
+                <label for="headwindComponent">Headwind Component:</label>
+                <input id="headwindComponent" type="number">
+                <select
+                name="unitChangeNot"
+                id="headwindComponent_id"
+                onchange=""
+                >
+                <option value="Metric">kts</option>
+                </select>
+                <label for="obstacleHeight">Obstacle Height:</label>
+                <input id="obstacleHeight" type="number">
+                <select
+                name="unitChange"
+                id="obstacleHeight_id"
+                onchange="VypoctyVykonyImperialneNaMetricke(),VypoctyVykony()"
+                >
+                <option value="Metric">m</option>
+                <option value="Imperial">ft</option>
+                </select>
+                <label for="additionalInfo">Runway Condition:</label>
+                <select
+                name="unitChangeNot"
+                id="additionalInfo"
+                onchange="VypoctyVykonyImperialneNaMetricke(),VypoctyVykony()">
+                <option value="Paved">Paved Runway</option>
+                <option value="Grass5">Grass to 5cm (2in)</option>
+                <option value="Grass5-10">Grass 5 to 10cm (2-4in)</option>
+                <option value="Grass10">Grass more than 10cm (4in)</option>
+                <option value="GrassWet">Wet grass more than 10cm (4in)</option>
+                </select>
+              </div>
+              <div class="DropdownOutputs">
+                <div class="DropdownNadpis1">Outputs:</div>
+                <label for="toRollDistance" class="label__1">TO roll distance:</label>
+                <input id="toRollDistance" type="text" class="input__1" readonly>
+                <select
+                name="unitChange"
+                id="toRollDistance_id"
+                class="select__1"
+                onchange="VypoctyVykonyImperialneNaMetricke(),VypoctyVykony()"
+                >
+                <option value="Metric">m</option>
+                <option value="Imperial">ft</option>
+                </select>
+                <label for="toRollDistanceClear" class="label__2">Distance to clear:</label>
+                <input id="toRollDistanceClear" type="text" class="input__2" readonly>
+                <select
+                name="unitChange"
+                id="toRollDistanceClear_id"
+                class="select__2"
+                onchange="VypoctyVykonyImperialneNaMetricke(),VypoctyVykony()"
+                >
+                <option value="Metric">m</option>
+                <option value="Imperial">ft</option>
+                </select>
+              </div>
             </div>
           </div>
 
         <!--Výpočet Climb Performance-->
           <div class="DropdownWindow climb">
             <div class="Nadpis">Climb Performance</div>
+            <div class="container">
+              <div class="DropdownInputs">
+                <div class="DropdownNadpis gridInput">Inputs</div>
+                <label for="pressureAltitude1">Pressure Altitude:</label>
+                <input id="pressureAltitude1" type="number">
+                <select
+                name="unitChangeNot"
+                id="pressureAltitude1_id"
+                onchange=""
+                >
+                <option value="Metric">ft</option>
+                </select>
+                <label for="airTemperature2">Air Temperature:</label>
+                <input id="airTemperature2" type="number">
+                <select
+                name="unitChange"
+                id="airTemperature2_id"
+                onchange="VypoctyVykonyImperialneNaMetricke(),VypoctyVykony()"
+                >
+                <option value="Metric">°C</option>
+                <option value="Imperial">°F</option>
+                </select>
+                <label for="aircraftWeight1">Aircraft Weight:</label>
+                <input id="aircraftWeight1" type="number">
+                <select
+                name="unitChange"
+                id="aircraftWeight1_id"
+                onchange="VypoctyVykonyImperialneNaMetricke(),VypoctyVykony()"
+                >
+                <option value="Metric">kg</option>
+                <option value="Imperial">lbs</option>
+                </select>
+
+
+              </div>
+              <div class="DropdownOutputs">
+                <div class="DropdownNadpis1">Outputs:</div>
+                <label for="climbPerformance" class="label__1">Climb Performance:</label>
+                <input id="climbPerformance" type="text" class="input__1" readonly>
+                <select
+                name="unitChange"
+                id="climbPerformance_id"
+                onchange="VypoctyVykonyImperialneNaMetricke(),VypoctyVykony()"
+                >
+                <option value="Metric">ft/min</option>
+                <option value="Imperial">m/sec</option>
+                </select>              
+              </div>
+            </div>
+          </div>
+
+
+        <!--Výpočet Cruising Speed-->
+        <div class="DropdownWindow cruising">
+          <div class="Nadpis">Cruising Speed</div>
+          <div class="container">
             <div class="DropdownInputs">
               <div class="DropdownNadpis gridInput">Inputs</div>
-              <label for="pressureAltitude1">Pressure Altitude:</label>
-              <input id="pressureAltitude1" type="number">
+              <label for="pressureAltitude2">Pressure Altitude:</label>
+              <input id="pressureAltitude2" type="number">
               <select
               name="unitChangeNot"
-              id="pressureAltitude1_id"
+              id="pressureAltitud2e_id"
               onchange=""
               >
               <option value="Metric">ft</option>
               </select>
-              <label for="airTemperature2">Air Temperature:</label>
-              <input id="airTemperature2" type="number">
+              <label for="airTemperature3">Air Temperature:</label>
+              <input id="airTemperature3" type="number">
               <select
               name="unitChange"
-              id="airTemperature2_id"
+              id="airTemperature3_id"
               onchange="VypoctyVykonyImperialneNaMetricke(),VypoctyVykony()"
               >
               <option value="Metric">°C</option>
               <option value="Imperial">°F</option>
               </select>
-              <label for="aircraftWeight1">Aircraft Weight:</label>
-              <input id="aircraftWeight1" type="number">
-              <select
-              name="unitChange"
-              id="aircraftWeight1_id"
-              onchange="VypoctyVykonyImperialneNaMetricke(),VypoctyVykony()"
-              >
-              <option value="Metric">kg</option>
-              <option value="Imperial">lbs</option>
+              <label for="powerSetting">Power Setting:</label>
+              <select id="powerSetting" type="number" onchange="VypoctyVykony()">
+                <option value = "55">55</option>
+                <option value = "60">60</option>
+                <option value = "65">65</option>
+                <option value = "75">75</option>
+                <option value = "85">85</option>
+                <option value = "95">95</option>
               </select>
-
+              <select
+              name="unitChangeNot"
+              id="powerSetting_id"
+              onchange=""
+              >
+              <option value="Metric">%</option>
+              </select>
 
             </div>
             <div class="DropdownOutputs">
               <div class="DropdownNadpis1">Outputs:</div>
-              <label for="climbPerformance" class="label__1">Climb Performance:</label>
-              <input id="climbPerformance" type="text" class="input__1" readonly>
+              <label for="cruisingSpeed" class="label__1">Cruising Speed:</label>
+              <input id="cruisingSpeed" type="text" class="input__1" readonly>
               <select
               name="unitChange"
-              id="climbPerformance_id"
+              id="cruisingSpeed_id"
               onchange="VypoctyVykonyImperialneNaMetricke(),VypoctyVykony()"
               >
-              <option value="Metric">ft/min</option>
-              <option value="Imperial">m/sec</option>
+              <option value="Metric">kts</option>
+              <option value="Imperial">km/h</option>
               </select>              
             </div>
           </div>
-
-        <!--Výpočet Cruising Speed-->
-        <div class="DropdownWindow cruising">
-          <div class="Nadpis">Cruising Speed</div>
-          <div class="DropdownInputs">
-            <div class="DropdownNadpis gridInput">Inputs</div>
-            <label for="pressureAltitude2">Pressure Altitude:</label>
-            <input id="pressureAltitude2" type="number">
-            <select
-            name="unitChangeNot"
-            id="pressureAltitud2e_id"
-            onchange=""
-            >
-            <option value="Metric">ft</option>
-            </select>
-            <label for="airTemperature3">Air Temperature:</label>
-            <input id="airTemperature3" type="number">
-            <select
-            name="unitChange"
-            id="airTemperature3_id"
-            onchange="VypoctyVykonyImperialneNaMetricke(),VypoctyVykony()"
-            >
-            <option value="Metric">°C</option>
-            <option value="Imperial">°F</option>
-            </select>
-            <label for="powerSetting">Power Setting:</label>
-            <select id="powerSetting" type="number" onchange="VypoctyVykony()">
-              <option value = "55">55</option>
-              <option value = "60">60</option>
-              <option value = "65">65</option>
-              <option value = "75">75</option>
-              <option value = "85">85</option>
-              <option value = "95">95</option>
-            </select>
-            <select
-            name="unitChangeNot"
-            id="powerSetting_id"
-            onchange=""
-            >
-            <option value="Metric">%</option>
-            </select>
-
-          </div>
-          <div class="DropdownOutputs">
-            <div class="DropdownNadpis1">Outputs:</div>
-            <label for="cruisingSpeed" class="label__1">Cruising Speed:</label>
-            <input id="cruisingSpeed" type="text" class="input__1" readonly>
-            <select
-            name="unitChange"
-            id="cruisingSpeed_id"
-            onchange="VypoctyVykonyImperialneNaMetricke(),VypoctyVykony()"
-            >
-            <option value="Metric">kts</option>
-            <option value="Imperial">km/h</option>
-            </select>              
-          </div>
         </div>
+
+        <!-- Flight Time Duration -->
         <div class="DropdownWindow FlightBox">
           <div class="Nadpis">Flight Time duration</div>
-          <div class="DropdownInputs flightInput">
-            <div class="DropdownNadpis">Inputs</div>
-            <label for="fuelPerf">Fuel:</label>
-            <input id="fuelPerf" type="number">
-            <select
-            name="unitChange"
-            id="fuelUnits_id"
-            onchange="VypoctyVykonyImperialneNaMetricke(),VypoctyVykony()"
-            >
-            <option value="Metric">l</option>
-            <option value="Imperial">USgal</option>
-            </select>
-            <label for="powerSetting2">Power Setting:</label>
-            <select id="powerSetting2" type="number" onchange="VypoctyVykony()">
-              <option value = "55">55</option>
-              <option value = "65">65</option>
-              <option value = "75">75</option>
-              <option value = "85">85</option>
-              <option value = "95">95</option>
-            </select>
-            <select
-            name="unitChangeNot"
-            id="powerSetting2_id"
-            onchange=""
-            >
-            <option value="Metric">%</option>
-            </select>
+          <div class="container">
+            <div class="DropdownInputs flightInput">
+              <div class="DropdownNadpis">Inputs</div>
+              <label for="fuelPerf">Fuel:</label>
+              <input id="fuelPerf" type="number">
+              <select
+              name="unitChange"
+              id="fuelUnits_id"
+              onchange="VypoctyVykonyImperialneNaMetricke(),VypoctyVykony()"
+              >
+              <option value="Metric">l</option>
+              <option value="Imperial">USgal</option>
+              </select>
+              <label for="powerSetting2">Power Setting:</label>
+              <select id="powerSetting2" type="number" onchange="VypoctyVykony()">
+                <option value = "55">55</option>
+                <option value = "65">65</option>
+                <option value = "75">75</option>
+                <option value = "85">85</option>
+                <option value = "95">95</option>
+              </select>
+              <select
+              name="unitChangeNot"
+              id="powerSetting2_id"
+              onchange=""
+              >
+              <option value="Metric">%</option>
+              </select>
 
+            </div>
+            <div class="DropdownOutputs">
+              <div class="DropdownNadpis1">Outputs:</div>
+              <label for="flightTime" class="label__1">Flight Time:</label>
+              <input id="flightTime" type="text" class="input__1" readonly>
+              <select 
+              class="fliOut"
+              name="unitChangeNot"
+              id="flightTimeUnits"
+              onchange=""
+              >
+              <option value="Metric">h:min</option>
+              </select>              
+              <label for="flightTime2" class="label__1 fliLap">With reserve:</label>
+              <input id="flightTime2" type="text" class="input__2" readonly>
+              <select
+              class="fliOut fliOut2"
+              name="unitChangeNot"
+              id="flightTime2Units"
+              onchange=""
+              >
+              <option value="Metric">h:min</option>
+              </select>  
+            </div>
           </div>
-          <div class="DropdownOutputs">
-            <div class="DropdownNadpis1">Outputs:</div>
-            <label for="flightTime" class="label__1">Flight Time:</label>
-            <input id="flightTime" type="text" class="input__1" readonly>
-            <select 
-            class="fliOut"
-            name="unitChangeNot"
-            id="flightTimeUnits"
-            onchange=""
-            >
-            <option value="Metric">h:min</option>
-            </select>              
-            <label for="flightTime2" class="label__1 fliLap">With reserve:</label>
-            <input id="flightTime2" type="text" class="input__2" readonly>
-            <select
-            class="fliOut fliOut2"
-            name="unitChangeNot"
-            id="flightTime2Units"
-            onchange=""
-            >
-            <option value="Metric">h:min</option>
-            </select>              
-
           </div>
-        </div>
-<!--Výpočet Stall Speeds-->
-<div class="DropdownWindow stall">
-  <div class="Nadpis">Stall Speeds</div>
-  <div class="DropdownInputs2">
-    <div class="DropdownNadpis2">Inputs:</div>
-    <label for="bankAngle" class="label__bankAngle">Bank Angle:</label>
-    <select id="bankAngle" type="number" class="input__bankAngle">
-    <option value = "0">0</option>
-    <option value = "15">15</option>
-    <option value = "30">30</option>
-    <option value = "45">45</option>
-    <option value = "60">60</option>
-  </select>
-    <select
-    name="unitChangeNot"
-    id="bankAngle_id"
-    class="select__bankAngle"
-    onchange=""
-    >
-    <option value="Metric">°</option>
-    </select>              
-  </div>
-  <div class="DropdownOutputs">
-    <div class="DropdownNadpis">Outputs:</div>
-    <label for="flapsUP">Flaps UP:</label>
-    <input id="flapsUP" type="text" readonly>
-    <select
-    name="unitChange"
-    id="flapsUP_id"
-    onchange="VypoctyVykony()"
-    >
-    <option value="Metric">kts</option>
-    <option value="Imperial">mph</option>
-    <option value="Hybrid">km/h</option>
-    </select>
-    <label for="flapsTO">Flaps T/O:</label>
-    <input id="flapsTO" type="text" readonly>
-    <select
-    name="unitChange"
-    id="flapsTO_id"
-    onchange="VypoctyVykony()"
-    >
-    <option value="Metric">kts</option>
-    <option value="Imperial">mph</option>
-    <option value="Hybrid">km/h</option>
-    </select>
-    <label for="flapsLDG">Flaps LDG:</label>
-    <input id="flapsLDG" type="text" readonly>
-    <select
-    name="unitChange"
-    id="flapsLDG_id"
-    onchange="VypoctyVykony()"
-    >
-    <option value="Metric">kts</option>
-    <option value="Imperial">mph</option>
-    <option value="Hybrid">km/h</option>
-    </select>
-
-  </div>
-</div>
-
-
-
-
+                  <!--Výpočet Stall Speeds-->
+                  <div class="DropdownWindow stall">
+                    <div class="Nadpis">Stall Speeds</div>
+                    <div class="container">
+                      <div class="DropdownInputs2">
+                        <div class="DropdownNadpis2">Inputs:</div>
+                        <label for="bankAngle" class="label__bankAngle">Bank Angle:</label>
+                        <select id="bankAngle" type="number" class="input__bankAngle">
+                        <option value = "0">0</option>
+                        <option value = "15">15</option>
+                        <option value = "30">30</option>
+                        <option value = "45">45</option>
+                        <option value = "60">60</option>
+                      </select>
+                        <select
+                        name="unitChangeNot"
+                        id="bankAngle_id"
+                        class="select__bankAngle"
+                        onchange=""
+                        >
+                        <option value="Metric">°</option>
+                        </select>              
+                      </div>
+                      <div class="DropdownOutputs">
+                        <div class="DropdownNadpis">Outputs:</div>
+                        <label for="flapsUP">Flaps UP:</label>
+                        <input id="flapsUP" type="text" readonly>
+                        <select
+                        name="unitChange"
+                        id="flapsUP_id"
+                        onchange="VypoctyVykony()"
+                        >
+                        <option value="Metric">kts</option>
+                        <option value="Imperial">mph</option>
+                        <option value="Hybrid">km/h</option>
+                        </select>
+                        <label for="flapsTO">Flaps T/O:</label>
+                        <input id="flapsTO" type="text" readonly>
+                        <select
+                        name="unitChange"
+                        id="flapsTO_id"
+                        onchange="VypoctyVykony()"
+                        >
+                        <option value="Metric">kts</option>
+                        <option value="Imperial">mph</option>
+                        <option value="Hybrid">km/h</option>
+                        </select>
+                        <label for="flapsLDG">Flaps LDG:</label>
+                        <input id="flapsLDG" type="text" readonly>
+                        <select
+                        name="unitChange"
+                        id="flapsLDG_id"
+                        onchange="VypoctyVykony()"
+                        >
+                        <option value="Metric">kts</option>
+                        <option value="Imperial">mph</option>
+                        <option value="Hybrid">km/h</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+          </div>
       </div>
-    </div>
 
     <!--Export do PDF-->
       <div class="item_Button">
@@ -652,9 +660,9 @@
     <!--Pätka-->
     <footer id="footer">
       <p>
-        Matúš Ištók<br />
+        Copyright (©) 2023 Matúš Ištók<br />
         Faculty of Aeronautics, Department of Flight Training, TUKE<br />
-        Košice 2023
+        Košice, Slovakia
       </p>
     </footer>
 
