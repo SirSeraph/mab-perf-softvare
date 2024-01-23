@@ -1,0 +1,501 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+    background-color: #2A2A2A;
+    color: black;
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0;
+  }
+input, select{
+  width: 100%;
+  height: 100%;
+}
+input, select{
+  min-height: 35px;
+  text-align: left;
+}
+.container{
+  display: grid;
+  gap: 1rem;
+}
+.item_PIC{
+  display: grid;
+  align-items: center;
+  grid-template-columns: .4fr 1fr;
+}
+.stall .container{
+  grid-template-columns: .33fr 1fr;
+}    
+.FlightBox .container{
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/*Grid na rovrhnutie celej stránky*/
+.siteGrid {
+  display: grid;
+  grid-template-columns: .7fr .7fr 1fr;
+  gap: 3rem;
+  max-width: 1360px;
+  margin: 2rem auto;
+}
+  
+/*Tabulka zadávaných hodnôt*/
+.hodnotyContainer {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: .55fr 1fr .3fr;
+  text-align: left;
+  background-color: #EEEEEE;
+  align-items: center;
+  padding: 0.3rem 0.5rem 0.5rem 0.5rem;
+  border-radius: 3px;
+}
+  
+.hodnotyContainer .item {
+  grid-column: 1/-1;
+  grid-row: 1;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #DCAF3C;
+  border-radius: 2px;
+  margin-top: 0.4em;
+  margin-bottom: 0.4em;
+}
+  
+/*Tabulka výsledkov*/
+.vysledkyContainer {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: .55fr 1fr .3fr;
+  text-align: left;
+  background-color: #EEEEEE;
+  align-items: center;
+  padding: 0.3rem 0.5rem 0.5rem 0.5rem;
+  border-radius: 3px;
+}
+.vysledkyContainer .grid-item {
+  grid-column: 1/-1;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #DCAF3C;
+  border-radius: 2px;
+  margin-top: 0.4em;
+  margin-bottom: 0.4em;
+}
+  
+/*Zmena jednotiek (select units)*/
+.unitChoiceInput select {
+  cursor: pointer;
+  min-width: 70px;
+}
+.unitChoiceOutput select {
+  cursor: pointer;
+  min-width: 70px;
+}
+/*Responzívna tabulka s ukazovatelmi (letová obálka)*/
+.envelope {
+  display: grid;
+  gap: 0.5rem;
+  text-align: left;
+  background-color: #EEEEEE;
+  align-items: center;
+  padding: 0.8rem 0.5rem 0.5rem 0.5rem;
+  border-radius: 3px;
+}
+.nadpisEnvelope {
+  grid-row: 1;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #DCAF3C;
+  border-radius: 2px;
+  margin-bottom: 0.5em;
+}
+.resposiveTable {
+  grid-row: 2;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border-radius: 3px;
+}
+#myChart {
+  width: 500px;
+  height: 250px;
+}
+/*Spodná tabulka s inormáciami a globálnym prepínačom jednotiek*/
+.aditionalContainer {
+  display: grid;
+  grid-template-columns: 0.7fr 1fr 1fr .7fr;
+  gap: 7rem;
+  max-width: 1360px;
+  margin: 2rem auto;
+  padding: 0.5rem;
+  align-items: center;
+  background-color: #DCAF3C;
+  border-radius: 3px;
+  font-weight: bold;
+}
+.item_Button{
+  text-align: center;
+}
+.item_Button button {
+  height: 40px;
+  width: 100px;
+  text-align: center;
+  background-color: rgba(236,236,236);
+  border-color: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.item_date{
+  display: grid;
+  grid-template-columns: .3fr 1fr;
+  align-items: center;
+}
+
+.item_Callsign {
+  display: grid;
+  align-items: center;
+  grid-template-columns: .4fr 1fr
+}
+.item_unitsSelectContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+.aditionalContainer input {
+  border-radius: 3px;
+  margin-left: 1em;
+  text-align: center;
+}
+.aditionalContainer #reg_choice_id {
+  border-radius: 3px;
+  margin-left: 1em;
+  text-align: left;
+}
+.aditionalContainer select {
+  border-radius: 3px;
+}
+.aditionalContainer label {
+  width:max-content;
+}
+
+  
+/*Výkony*/
+.dropdown-box{
+  max-width: 1360px;
+  margin: 2rem auto;
+  padding: 1rem 0rem;
+  align-items: center;
+  background-color: #DCAF3C;
+  border-radius: 3px;
+  text-align: center;
+}
+.dropdown-box #dropbtn{
+  text-align: center;
+  background-color: #DCAF3C;
+  border-color: #dcaf3c00;
+  color: black;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#dropdown-content {
+  transition: all 0.1s linear;
+  height: 0;
+  overflow: hidden;
+}
+
+#dropdown-content.show {
+  padding-top: 1.5rem;
+  height: auto;
+  padding: 1rem;
+}
+
+/*Obsah dropdown*/
+.DropdownWindow{
+  background-color: #2A2A2A;
+  display: grid;
+  gap: 1rem;
+  padding: 0.5rem;
+}
+
+/*Nadpis nad všetkými tabulkami*/
+.DropdownWindow .Nadpis{
+  grid-column: 1/-1;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 0.5rem;
+  background: linear-gradient(90deg, #2A2A2A 2%, #DCAF3C 50%, #2A2A2A 98%);;;
+  border-radius: 2px;
+}
+.take_off .container, .climb .container, .cruising .container{
+  grid-template-columns: 1fr .33fr;
+  gap: 1rem;
+}
+.take_off .container .DropdownInputs,
+.climb .container .DropdownInputs,
+.cruising .container .DropdownInputs
+{
+  grid-template-columns: .4fr 1fr .4fr .4fr 1fr .4fr .4fr 1fr .4fr;
+}
+
+/*Nadpis input prvá tabulka*/
+.DropdownNadpis{
+  grid-column: 1/-1;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #DCAF3C;
+  border-radius: 2px;
+}
+/*Nadpis output prvá tabulka*/
+.DropdownNadpis1{
+grid-column: 1/-1;
+font-size: 20px;
+font-weight: bold;
+text-align: center;
+background-color: #DCAF3C;
+border-radius: 2px;
+}
+
+/*Tabulky select*/
+.DropdownWindow select{
+  cursor: pointer;
+}
+/*Tabulky input*/
+.DropdownInputs{
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(9, 1fr);
+  text-align: left;
+  background-color: #EEEEEE;
+  align-items: center;
+  padding: 0.3rem 0.5rem 0.5rem 0.5rem;
+  border-radius: 3px;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+#additionalInfo{
+  grid-column: span 2;
+}
+/*Uhol nábehu tabulka*/
+.DropdownNadpis2{
+  grid-column: 1/-1;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #DCAF3C;
+  border-radius: 2px;
+}
+
+.DropdownInputs2{
+  display: grid;
+  grid-column: 1;
+  grid-row: auto;
+  gap: 0.5rem;
+  grid-template-columns: .4fr 1fr .5fr;
+  text-align: left;
+  background-color: #EEEEEE;
+  align-items: center;
+  padding: 0.3rem 0.5rem 0.5rem 0.5rem;
+  border-radius: 3px;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.label__bankAngle{
+  grid-column: 1;
+  grid-row: 2;
+}
+.input__bankAngle{
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.DropdownOutputs{
+  display: grid;
+  gap: 0.5rem;
+  grid-row: auto;
+  grid-template-columns: .4fr 1fr .5fr;
+  text-align: left;
+  background-color: #EEEEEE;
+  align-items: center;
+  padding: 0.3rem 0.5rem 0.5rem 0.5rem;
+  border-radius: 3px;
+  font-size: 16px;
+  font-weight: normal;
+}
+.stall .container .DropdownOutputs{
+  grid-template-columns: .4fr 1fr .4fr .4fr 1fr .4fr .4fr 1fr .4fr;
+}
+.flightInput,
+.FlightBox .DropdownOutputs{
+ grid-template-columns: .3fr 1fr .4fr .4fr 1fr .4fr;
+}
+
+/*Responzivita*/
+@media (max-width: 1280px) {
+  .siteGrid {
+    max-width: 1000px;
+    margin: 60px auto;
+    grid-template-columns: 1fr 1fr;
+  }
+  .resposiveTable {
+    width: 100%;
+    height: 100%;
+  }
+  .envelope {
+    grid-column: 1/-1;
+  }
+  .aditionalContainer input {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+@media(max-width: 1100px) {
+  .DropdownInputs, 
+  .DropdownOutputs {
+    font-size: 14px;
+  }
+  .DropdownWindow .Nadpis, 
+  .DropdownNadpis,
+  .DropdownNadpis1{
+    font-size: 16px;
+  }
+}
+@media (min-width: 550px) and (max-width: 900px)
+{
+  .container{
+    width: 550px;
+  }
+}
+@media (max-width: 900px) {
+  .item_date {
+    display: grid;
+    grid-template-columns: .4fr 1fr;
+    align-items: center;
+    margin-bottom: 9px;
+}
+  .DropdownInputs, 
+  .DropdownOutputs {
+    font-size: 1rem;
+  }
+  .DropdownWindow .Nadpis, 
+  .DropdownNadpis,
+  .DropdownNadpis1{
+    font-size: 20px;
+  }
+  .DropdownWindow{
+    margin: 0.4em;
+  }
+  .container{
+    grid-template-columns: 1fr;
+    max-width: 30rem;
+    margin: 0 auto;
+  }
+  .take_off  .container .DropdownInputs, .climb .container .DropdownInputs, .cruising .container .DropdownInputs {
+    grid-template-columns: .4fr 1fr .4fr;
+  }
+  .take_off  .container, .climb .container, .cruising .container {
+    grid-template-columns: 1fr;
+  }
+  .stall .container {
+  grid-template-columns: 1fr;
+  }
+  .stall .container .DropdownOutputs {
+    grid-template-columns: .4fr 1fr .4fr;
+  }
+  .FlightBox .container {
+    grid-template-columns:1fr;
+  }
+  #dropdown-content.show {
+    padding: 0;
+  }
+  .flightInput, .FlightBox .container .DropdownOutputs {
+  grid-template-columns: .3fr 1fr .4fr;
+  }
+  .siteGrid {
+    display: inherit;
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  .hodnotyContainer {
+    margin: 2rem 0;
+  }
+  .vysledkyContainer {
+    margin: 2rem 0;
+  }
+  .envelope {
+    display: inherit;
+    margin: 2rem 0;
+  }
+  .resposiveTable {
+    width: 100%;
+  }
+
+  .aditionalContainer {
+    display: inherit;
+    width: 518px;
+  }
+  .aditionalContainer label{
+    width: auto;
+  }
+  .item_unitsSelectContainer {
+    display: grid;
+    grid-template-columns: .4fr 1fr;
+    align-items: center;
+    margin-bottom: 9px;
+  }
+  .item_Callsign {
+    align-items: center;
+    margin-bottom: 9px;
+  }
+  .item_PIC{
+    margin-bottom: 9px;
+  }
+  .item_unitsSelectContainer label {
+    text-align: start;
+  }
+  .item_unitsSelectContainer select {
+    text-align: center;
+  }
+}
+@media (max-width: 600px) {
+  header {
+    font-size: 25px;
+  }
+  .siteGrid {
+    margin: 0px auto;
+  }
+  .aditionalContainer {
+    display: inherit;
+    width: 91%;
+  }
+  .item_unitsSelectContainer select {
+    height: 35px;
+  }
+  .item_date{
+    padding-left: 0rem;
+  }
+  .item_unitsSelectContainer{
+    padding-right: 0rem;
+  }
+  
+}
+@media (min-width:375px) and (max-width: 550px){
+  .container{
+    min-width: 365px;
+  }
+}
