@@ -1,0 +1,51 @@
+header{
+    font-size: 40px;
+    text-align: center;
+    font-family: "roboto";
+    font-weight: bold;
+    background-color: #DCAF3C;
+    padding: 10px 0px 10px 0px;
+    color: black;
+    
+}
+
+header img{
+    width: 2%;
+    height: auto;
+    position: absolute;
+    right: 3.8%;
+    top: 2.5%;
+    cursor: pointer;
+}
+
+header h1{
+    font-size: small;
+}
+
+@media (max-width: 1280px) {
+    header img{
+        width: 3%;
+        height: auto;
+        position: absolute;
+        right: 3.8%;
+        top: 2.8%;
+    }    
+  }
+  @media (max-width: 900px) {
+    header img{
+        width: 4%;
+        height: auto;
+        position: absolute;
+        right: 3.8%;
+        top: 1.8%;
+    }    
+  }
+  @media (max-width: 600px) {
+    header img{
+        width: 5%;
+        height: auto;
+        position: absolute;
+        right: 3.8%;
+        top: 2%;
+    }    
+  }
